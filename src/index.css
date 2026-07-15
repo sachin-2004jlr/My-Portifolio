@@ -263,22 +263,19 @@ main { position: relative; z-index: 1; }
 }
 .hero__portrait-frame {
   position: relative;
-  width: clamp(190px, 26vw, 300px);
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  border: 1px solid var(--line-strong);
-  border-radius: 10px;
-  background: var(--paper-2);
+  width: clamp(230px, 30vw, 340px);
+  background: transparent;
+  border: none;
+  align-self: end;
 }
 .hero__portrait-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* Centered on the face; grayscale editorial look */
-  object-position: 50% 44%;
-  transform: scale(1.52);
-  transform-origin: center;
-  filter: grayscale(1) contrast(1.08) brightness(1.0);
+  height: auto;
+  display: block;
+  /* Cut-out figure that blends into the paper background */
+  filter: grayscale(1) contrast(1.05);
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
 }
 .hero__portrait-cap {
   writing-mode: vertical-rl;

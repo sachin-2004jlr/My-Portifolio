@@ -13,7 +13,7 @@ export const profile = {
   based: 'Based in Bengaluru, India',
   availability: 'Open to opportunities',
   year: '2004',
-  photo: './sachin.jpg',
+  photo: './sachin.png',
   // Big editorial headline words
   headline: ['AI', 'ENGINEER'],
   summary:
