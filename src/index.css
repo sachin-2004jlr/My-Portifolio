@@ -272,8 +272,8 @@ main { position: relative; z-index: 1; }
   width: 100%;
   height: auto;
   display: block;
-  /* Cut-out figure that blends into the paper background */
-  filter: grayscale(1) contrast(1.05);
+  /* Cut-out figure that blends into the paper background (full colour) */
+  filter: saturate(1.05) contrast(1.02);
   -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
           mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
 }
@@ -438,6 +438,22 @@ main { position: relative; z-index: 1; }
 .project__link { margin-top: auto; display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; transition: gap .2s; }
 .project__link:hover { gap: 0.7rem; }
 .project__link svg { color: var(--accent); }
+.project__company {
+  display: flex; align-items: center; gap: 0.55rem;
+  margin: -0.2rem 0 0.9rem;
+  font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft);
+}
+.project__private {
+  font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.16rem 0.5rem; border-radius: 100px;
+  border: 1px solid var(--accent); color: var(--accent);
+}
+.project__note {
+  margin-top: auto;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-mono); font-size: 0.74rem;
+  letter-spacing: 0.03em; color: var(--faint);
+}
 
 /* ---------- Certifications ---------- */
 .certs__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; background: var(--card); }

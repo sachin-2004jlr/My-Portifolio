@@ -99,6 +99,8 @@ export const projects = [
   {
     name: 'AI-Powered Talent Matching Platform',
     period: 'Ongoing',
+    company: 'Budhhi Technologies',
+    private: true,
     featured: true,
     tags: ['React', 'Flask', 'MongoDB', 'OpenAI', 'Pinecone', 'Socket.IO'],
     blurb:
@@ -108,7 +110,7 @@ export const projects = [
       'OpenAI + Pinecone vector database for semantic search, significantly improving recommendation relevance.',
       'Resume parsing and ATS scoring pipelines with NLP extraction, plus a real-time notification system.',
     ],
-    url: 'https://github.com/sachin-2004jlr',
+    url: null,
   },
   {
     name: 'RAG Streamlit App',

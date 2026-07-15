@@ -45,6 +45,12 @@ export default function Projects() {
               {p.featured && <span className="project__badge">Featured</span>}
             </div>
             <h3 className="project__name">{p.name}</h3>
+            {p.company && (
+              <p className="project__company">
+                {p.company}
+                {p.private && <span className="project__private">Private</span>}
+              </p>
+            )}
             <p className="project__blurb">{p.blurb}</p>
             <ul className="project__points">
               {p.highlights.map((h, idx) => (
@@ -56,9 +62,13 @@ export default function Projects() {
                 <li key={t} className="tag">{t}</li>
               ))}
             </ul>
-            <a className="project__link" href={p.url} target="_blank" rel="noopener noreferrer">
-              View on GitHub <ArrowUpRight />
-            </a>
+            {p.url ? (
+              <a className="project__link" href={p.url} target="_blank" rel="noopener noreferrer">
+                View on GitHub <ArrowUpRight />
+              </a>
+            ) : (
+              <span className="project__note">Private company project · {p.company}</span>
+            )}
           </Reveal>
         ))}
       </div>
