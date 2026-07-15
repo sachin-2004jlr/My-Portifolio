@@ -62,11 +62,6 @@ export default function Nav() {
               </a>
             </li>
           ))}
-          <li className="nav__links-cta">
-            <a href="#contact" className="btn btn--sm" onClick={(e) => go(e, '#contact')}>
-              Let’s talk
-            </a>
-          </li>
         </ul>
 
         <button
