@@ -25,20 +25,19 @@ export default function Hero() {
           {profile.year}
         </motion.span>
 
-        <motion.h1
-          className="hero__display"
+        <motion.p
+          className="hero__kicker"
           variants={rise} initial="hidden" animate="show" custom={1}
         >
-          <span>{profile.headline[0]}</span>{' '}
-          <span className="hero__display-outline">{profile.headline[1]}</span>
-        </motion.h1>
+          {profile.headline.join(' ')}
+        </motion.p>
 
-        <motion.span
-          className="hero__name"
+        <motion.h1
+          className="hero__title"
           variants={rise} initial="hidden" animate="show" custom={2}
         >
           {profile.name}
-        </motion.span>
+        </motion.h1>
       </div>
 
       <motion.div
