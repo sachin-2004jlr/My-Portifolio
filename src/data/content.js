@@ -32,7 +32,7 @@ export const socials = [
 ]
 
 export const stats = [
-  { value: '9.0', suffix: '/10', label: 'CGPA · B.E. AI & DS' },
+  { value: '9.07', suffix: '/10', label: 'CGPA · B.E. AI & DS' },
   { value: '6', suffix: '+', label: 'Shipped Projects' },
   { value: '2', suffix: '', label: 'Engineering Internships' },
   { value: '3', suffix: '+', label: 'Certifications' },
@@ -183,7 +183,7 @@ export const education = [
   {
     degree: 'B.E. — Artificial Intelligence & Data Science',
     school: 'Global Academy of Technology, Bengaluru',
-    detail: 'CGPA: 9.0 / 10',
+    detail: 'CGPA: 9.07 / 10',
   },
   {
     degree: 'Pre-University Education',
