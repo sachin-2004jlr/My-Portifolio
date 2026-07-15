@@ -272,10 +272,10 @@ main { position: relative; z-index: 1; }
   width: 100%;
   height: auto;
   display: block;
-  /* Cut-out figure that blends into the paper background (full colour) */
-  filter: saturate(1.05) contrast(1.02);
-  -webkit-mask-image: linear-gradient(to bottom, #000 88%, transparent 100%);
-          mask-image: linear-gradient(to bottom, #000 88%, transparent 100%);
+  /* Cut-out figure, black & white, blending into the paper background */
+  filter: grayscale(1) contrast(1.06);
+  -webkit-mask-image: linear-gradient(to bottom, #000 90%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 90%, transparent 100%);
 }
 .hero__portrait-cap {
   writing-mode: vertical-rl;
