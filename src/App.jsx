@@ -9,10 +9,12 @@ import Certifications from './components/Certifications'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import GridBackground from './components/GridBackground'
+import BackToTop from './components/BackToTop'
 
 export default function App() {
   return (
     <>
+      <a className="skip-link" href="#main">Skip to content</a>
       <GridBackground />
       <ScrollProgress />
       <Nav />
@@ -28,6 +30,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <BackToTop />
     </>
   )
 }

@@ -55,6 +55,15 @@ export function ArrowDown(props) {
   )
 }
 
+export function ArrowUp(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 19V5" />
+      <path d="m6 11 6-6 6 6" />
+    </svg>
+  )
+}
+
 export function ArrowDownRight(props) {
   return (
     <svg {...base} {...props}>

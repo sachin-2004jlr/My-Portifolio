@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sachin-2004jlr.github.io/My-Portifolio/sitemap.xml

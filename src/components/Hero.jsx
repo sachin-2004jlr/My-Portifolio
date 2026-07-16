@@ -63,15 +63,19 @@ export default function Hero() {
 
         <div className="hero__portrait">
           <div className="hero__portrait-frame">
-            <img
-              className="hero__portrait-img"
-              src={profile.photo}
-              alt={`Portrait of ${profile.name}`}
-              width="300"
-              height="375"
-              loading="eager"
-              decoding="async"
-            />
+            <picture>
+              <source srcSet={profile.photoWebp} type="image/webp" />
+              <img
+                className="hero__portrait-img"
+                src={profile.photo}
+                alt={`Portrait of ${profile.name}`}
+                width={profile.photoWidth}
+                height={profile.photoHeight}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
+            </picture>
           </div>
           <span className="hero__portrait-cap">{profile.based}</span>
         </div>

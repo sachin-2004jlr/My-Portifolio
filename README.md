@@ -57,8 +57,11 @@ npm run lint       # lint the source
 ## ▦ Customize
 
 - **Text/content** — edit [`src/data/content.js`](src/data/content.js).
-- **Accent colour** — change `--accent` in [`src/index.css`](src/index.css) (one line).
-- **Portrait** — replace [`public/sachin.jpg`](public/); tune the crop via `.hero__portrait-img` in `index.css`.
+- **Accent colour** — `--accent` (vivid, decorative) and `--accent-deep` (AA-safe, for small text) in [`src/index.css`](src/index.css).
+- **Portrait** — the original lives in [`source-assets/`](source-assets/) (not deployed). The site serves a
+  background-removed cut-out as `public/sachin.webp` (+ `sachin.png` fallback). To swap it: drop in a new
+  photo, remove the background, and export both formats at ~760px wide.
+- **Social card** — [`public/og.jpg`](public/) (1200×630), referenced by `og:image` in `index.html`.
 - **Resume download** — drop a `SACHIN_RESUME.pdf` into [`public/`](public/) (already referenced in `content.js`).
 
 ## 🌐 Deploy

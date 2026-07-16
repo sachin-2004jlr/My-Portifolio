@@ -14,6 +14,9 @@ export const profile = {
   availability: 'Open to opportunities',
   year: '2004',
   photo: './sachin.png',
+  photoWebp: './sachin.webp',
+  photoWidth: 760,
+  photoHeight: 1007,
   // Big editorial headline words
   headline: ['AI', 'ENGINEER'],
   summary:
