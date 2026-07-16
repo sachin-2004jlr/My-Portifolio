@@ -37,7 +37,7 @@ ul { list-style: none; padding: 0; }
 
   --container: 1280px;
   --pad: clamp(1.15rem, 5vw, 3.5rem);
-  --nav-h: 68px;
+  --nav-h: 58px;
 }
 
 /* ---------- Base ---------- */
@@ -231,7 +231,7 @@ main { position: relative; z-index: 1; }
 .hero {
   max-width: var(--container);
   margin: 0 auto;
-  padding: calc(var(--nav-h) + 0.75rem) var(--pad) 3rem;
+  padding: calc(var(--nav-h) + 0.25rem) var(--pad) 2.5rem;
 }
 .hero__head { position: relative; padding-top: 0; text-align: center; }
 .hero__year {
@@ -242,7 +242,7 @@ main { position: relative; z-index: 1; }
 }
 .hero__year::before { content: '© '; color: var(--accent-deep); }
 .hero__kicker {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   font-family: var(--font-mono);
   font-weight: 500;
   font-size: clamp(1.05rem, 2.6vw, 1.9rem);
@@ -262,7 +262,7 @@ main { position: relative; z-index: 1; }
 
 /* Mid: services panel + portrait */
 .hero__mid {
-  margin-top: clamp(2rem, 5vw, 3.5rem);
+  margin-top: clamp(1.25rem, 3vw, 2.25rem);
   display: grid;
   grid-template-columns: 1fr auto;
   gap: clamp(1.5rem, 4vw, 3rem);
