@@ -114,6 +114,16 @@ main { position: relative; z-index: 1; }
 .to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
 .to-top:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
 
+/* ---------- 3D / motion primitives ---------- */
+.tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform .45s cubic-bezier(.22,1,.36,1), box-shadow .3s, border-color .3s;
+}
+/* Grid cells wrap the Reveal so tilt + entrance transforms never collide */
+.work__cell, .skills__cell, .certs__cell { display: flex; }
+.work__cell > *, .skills__cell > *, .certs__cell > * { flex: 1; }
+
 /* ---------- Shared type helpers ---------- */
 .mono { font-family: var(--font-mono); }
 .eyebrow {
@@ -139,9 +149,10 @@ main { position: relative; z-index: 1; }
   border: 1px solid var(--ink);
   background: var(--ink);
   color: var(--paper);
-  transition: background .2s, color .2s, transform .2s, box-shadow .2s;
+  transition: background .2s, color .2s, box-shadow .2s,
+              transform .4s cubic-bezier(.22,1,.36,1);
 }
-.btn:hover { transform: translateY(-2px); box-shadow: 4px 4px 0 var(--ink); }
+.btn:hover { box-shadow: 4px 4px 0 var(--ink); }
 .btn svg { font-size: 1.1em; }
 .btn--ghost { background: transparent; color: var(--ink); }
 .btn--ghost:hover { background: var(--ink); color: var(--paper); }
@@ -258,6 +269,13 @@ main { position: relative; z-index: 1; }
   line-height: 0.96;
   letter-spacing: -0.04em;
   text-transform: uppercase;
+  perspective: 900px;
+}
+.hero__title-char {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  will-change: transform;
+  white-space: pre;
 }
 
 /* Mid: services panel + portrait */
@@ -309,6 +327,11 @@ main { position: relative; z-index: 1; }
   align-self: end;
 }
 .hero__portrait-frame picture { display: block; }
+.hero__portrait-frame {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform .5s cubic-bezier(.22,1,.36,1);
+}
 .hero__portrait-img {
   width: 100%;
   height: auto;
@@ -352,7 +375,7 @@ main { position: relative; z-index: 1; }
   gap: 2rem;
   flex-wrap: wrap;
 }
-.hero__work-stack { position: relative; width: 260px; height: 150px; }
+.hero__work-stack { position: relative; width: 260px; height: 150px; perspective: 900px; }
 .hero__work-card {
   position: absolute;
   width: 240px; height: 132px;
@@ -431,7 +454,8 @@ main { position: relative; z-index: 1; }
 
 /* ---------- Skills ---------- */
 .skills__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; background: var(--card); }
-.skill-card { padding: 1.7rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.skill-card { padding: 1.7rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--card); }
+.skill-card:hover { box-shadow: 0 18px 40px -24px rgba(0,0,0,.45); z-index: 1; }
 .skill-card__head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.2rem; }
 .skill-card__num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); }
 .skill-card__title { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; }
@@ -465,7 +489,7 @@ main { position: relative; z-index: 1; }
   background: var(--card);
   transition: transform .25s, box-shadow .25s, border-color .25s;
 }
-.project:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 var(--ink); border-color: var(--ink); }
+.project:hover { box-shadow: 10px 10px 0 var(--ink); border-color: var(--ink); }
 .project--featured { border-color: var(--ink); }
 .project__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
 .project__period { font-family: var(--font-mono); font-size: 0.74rem; color: var(--muted); }
@@ -498,7 +522,8 @@ main { position: relative; z-index: 1; }
 
 /* ---------- Certifications ---------- */
 .certs__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; background: var(--card); }
-.cert-card { padding: 1.6rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 0.6rem; }
+.cert-card { padding: 1.6rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 0.6rem; background: var(--card); }
+.cert-card:hover { box-shadow: 0 18px 40px -24px rgba(0,0,0,.45); z-index: 1; }
 .cert-card__num { font-family: var(--font-mono); font-size: 1.4rem; font-weight: 700; color: var(--accent); }
 .cert-card__head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; }
 .cert-card__title { font-family: var(--font-display); font-weight: 600; font-size: 1rem; line-height: 1.25; }
@@ -577,4 +602,22 @@ main { position: relative; z-index: 1; }
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+
+/* ---------- Recent-work stack: 3D fan-out on hover ---------- */
+.hero__work-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s;
+}
+.hero__work-stack:hover .hero__work-card:nth-child(1) { transform: rotate(-12deg) translate(-26px, -12px) rotateY(9deg); }
+.hero__work-stack:hover .hero__work-card:nth-child(2) { transform: rotate(1deg) translate(10px, -4px) rotateY(0deg); }
+.hero__work-stack:hover .hero__work-card:nth-child(3) { transform: rotate(14deg) translate(46px, 10px) rotateY(-9deg); }
+.hero__work-stack:hover .hero__work-card { box-shadow: 0 18px 34px -18px rgba(0,0,0,.55); }
+
+/* ---------- Reduced motion: disable 3D/tilt entirely ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .tilt, .hero__portrait-frame, .hero__work-card, .btn { transition: none !important; transform: none !important; }
+  .hero__work-stack:hover .hero__work-card { transform: none !important; }
 }

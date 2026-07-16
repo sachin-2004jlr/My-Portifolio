@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
+import TiltCard from './TiltCard'
 import { projects } from '../data/content'
 import { ArrowUpRight } from './Icons'
 
@@ -34,12 +35,8 @@ export default function Projects() {
 
       <div className="work__grid">
         {shown.map((p, i) => (
-          <Reveal
-            as="article"
-            className={`project ${p.featured ? 'project--featured' : ''}`}
-            key={p.name}
-            delay={(i % 3) * 0.05}
-          >
+          <Reveal className="work__cell" key={p.name} delay={(i % 3) * 0.05}>
+          <TiltCard as="article" className={`project ${p.featured ? 'project--featured' : ''}`}>
             <div className="project__top">
               <span className="project__period">{p.period}</span>
               {p.featured && <span className="project__badge">Featured</span>}
@@ -69,6 +66,7 @@ export default function Projects() {
             ) : (
               <span className="project__note">Private company project · {p.company}</span>
             )}
+          </TiltCard>
           </Reveal>
         ))}
       </div>

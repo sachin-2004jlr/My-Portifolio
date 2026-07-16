@@ -1,6 +1,8 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { profile, projects } from '../data/content'
 import { ArrowUpRight, ArrowDownRight } from './Icons'
+import useTilt from '../hooks/useTilt'
+import useMagnetic from '../hooks/useMagnetic'
 
 const rise = {
   hidden: { opacity: 0, y: 22 },
@@ -11,39 +13,65 @@ const rise = {
   }),
 }
 
+// Each letter flips up on the X axis — cinematic, staggered.
+const char = {
+  hidden: { opacity: 0, rotateX: -85, y: '0.35em' },
+  show: (i = 0) => ({
+    opacity: 1,
+    rotateX: 0,
+    y: 0,
+    transition: { duration: 0.75, delay: 0.22 + i * 0.045, ease: [0.22, 1, 0.36, 1] },
+  }),
+}
+
+function Title({ name, reduce }) {
+  if (reduce) return <h1 className="hero__title">{name}</h1>
+  return (
+    <h1 className="hero__title" aria-label={name}>
+      {name.split('').map((c, i) => (
+        <motion.span
+          key={i}
+          className="hero__title-char"
+          variants={char}
+          initial="hidden"
+          animate="show"
+          custom={i}
+          aria-hidden="true"
+        >
+          {c === ' ' ? ' ' : c}
+        </motion.span>
+      ))}
+    </h1>
+  )
+}
+
 export default function Hero() {
-  const featured = projects.filter((p) => p.featured).slice(0, 3)
-  const stack = featured.length ? featured : projects.slice(0, 3)
+  const reduce = useReducedMotion()
+  // Featured first, then fill — the stack always fans out three cards.
+  const stack = [
+    ...projects.filter((p) => p.featured),
+    ...projects.filter((p) => !p.featured),
+  ].slice(0, 3)
+
+  const portraitRef = useTilt({ max: 6, scale: 1.01, lift: 0 })
+  const ctaPrimary = useMagnetic({ strength: 0.25 })
+  const ctaGhost = useMagnetic({ strength: 0.25 })
 
   return (
     <section className="hero" id="top">
       <div className="hero__head">
-        <motion.span
-          className="hero__year"
-          variants={rise} initial="hidden" animate="show" custom={0}
-        >
+        <motion.span className="hero__year" variants={rise} initial="hidden" animate="show" custom={0}>
           {profile.year}
         </motion.span>
 
-        <motion.p
-          className="hero__kicker"
-          variants={rise} initial="hidden" animate="show" custom={1}
-        >
+        <motion.p className="hero__kicker" variants={rise} initial="hidden" animate="show" custom={1}>
           {profile.headline.join(' ')}
         </motion.p>
 
-        <motion.h1
-          className="hero__title"
-          variants={rise} initial="hidden" animate="show" custom={2}
-        >
-          {profile.name}
-        </motion.h1>
+        <Title name={profile.name} reduce={reduce} />
       </div>
 
-      <motion.div
-        className="hero__mid"
-        variants={rise} initial="hidden" animate="show" custom={3}
-      >
+      <motion.div className="hero__mid" variants={rise} initial="hidden" animate="show" custom={3}>
         <div className="hero__panel">
           <ul className="hero__services">
             {profile.services.map((s) => (
@@ -62,7 +90,7 @@ export default function Hero() {
         </div>
 
         <div className="hero__portrait">
-          <div className="hero__portrait-frame">
+          <div className="hero__portrait-frame" ref={portraitRef}>
             <picture>
               <source srcSet={profile.photoWebp} type="image/webp" />
               <img
@@ -81,25 +109,16 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      <motion.p
-        className="hero__statement"
-        variants={rise} initial="hidden" animate="show" custom={4}
-      >
+      <motion.p className="hero__statement" variants={rise} initial="hidden" animate="show" custom={4}>
         {profile.statement}
       </motion.p>
 
-      <motion.div
-        className="hero__cta"
-        variants={rise} initial="hidden" animate="show" custom={5}
-      >
-        <a className="btn btn--accent" href="#contact">Get in touch</a>
-        <a className="btn btn--ghost" href="#work">See selected work</a>
+      <motion.div className="hero__cta" variants={rise} initial="hidden" animate="show" custom={5}>
+        <a className="btn btn--accent" href="#contact" ref={ctaPrimary}>Get in touch</a>
+        <a className="btn btn--ghost" href="#work" ref={ctaGhost}>See selected work</a>
       </motion.div>
 
-      <motion.div
-        className="hero__work"
-        variants={rise} initial="hidden" animate="show" custom={6}
-      >
+      <motion.div className="hero__work" variants={rise} initial="hidden" animate="show" custom={6}>
         <div className="hero__work-stack" aria-hidden="true">
           {stack.map((p) => (
             <div className="hero__work-card" key={p.name}>
