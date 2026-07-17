@@ -2,6 +2,7 @@ import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import TiltCard from './TiltCard'
 import { certifications } from '../data/content'
+import { ArrowUpRight } from './Icons'
 
 export default function Certifications() {
   return (
@@ -17,7 +18,18 @@ export default function Certifications() {
                 <h3 className="cert-card__title">{c.title}</h3>
                 <span className="cert-card__year">{c.year}</span>
               </div>
+              {c.issuer && <p className="cert-card__issuer">{c.issuer}</p>}
               <p className="cert-card__detail">{c.detail}</p>
+              {c.url && (
+                <a
+                  className="cert-card__verify"
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Verify credential <ArrowUpRight />
+                </a>
+              )}
             </TiltCard>
           </Reveal>
         ))}

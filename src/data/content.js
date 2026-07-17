@@ -43,6 +43,18 @@ export const stats = [
 
 export const skillGroups = [
   {
+    title: 'Generative AI & Agents',
+    icon: 'spark',
+    items: [
+      'Generative AI Application Development',
+      'Prompt Engineering & Prompt Evaluation',
+      'AI Agent Development & Workflow Automation',
+      'Retrieval-Augmented Generation (RAG)',
+      'Model Context Protocol (MCP)',
+      'Tool Calling & LLM Integration',
+    ],
+  },
+  {
     title: 'Languages & Frameworks',
     icon: 'code',
     items: ['Python', 'JavaScript', 'React', 'Flask', 'Axios', 'HTML / CSS', 'Flask-SocketIO'],
@@ -51,8 +63,8 @@ export const skillGroups = [
     title: 'AI & Data',
     icon: 'brain',
     items: [
-      'Neural Networks', 'NLP', 'LangChain', 'LangGraph', 'RAG Pipelines', 'Semantic Search',
-      'Vector Embeddings', 'LLM Integration', 'Prompt Engineering', 'Fine-Tuning',
+      'Neural Networks', 'NLP', 'LangChain', 'LangGraph', 'Semantic Search',
+      'Vector Embeddings', 'Fine-Tuning',
       'TensorFlow', 'PyTorch', 'Keras', 'Scikit-learn', 'OpenCV', 'Pandas', 'NumPy',
     ],
   },
@@ -196,6 +208,22 @@ export const education = [
 ]
 
 export const certifications = [
+  {
+    title: 'Building with the Claude API',
+    issuer: 'Anthropic Education',
+    year: '2026',
+    detail:
+      'Building generative-AI applications on the Claude API — tool calling, LLM integration, RAG and the Model Context Protocol (MCP).',
+    url: 'https://verify.skilljar.com/c/ct7tuupwp85p',
+  },
+  {
+    title: 'Introduction to Claude Cowork',
+    issuer: 'Anthropic Education',
+    year: '2026',
+    detail:
+      'AI agent development and workflow automation — prompt engineering, prompt evaluation and agentic collaboration patterns.',
+    url: 'https://verify.skilljar.com/c/ko6wq9ax4oek',
+  },
   {
     title: 'Google Cloud — Hack2Skill Certificate',
     year: '2025',
