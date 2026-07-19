@@ -10,6 +10,8 @@ import Certifications from './components/Certifications'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import GridBackground from './components/GridBackground'
+import Spotlight from './components/Spotlight'
+import Marquee from './components/Marquee'
 import BackToTop from './components/BackToTop'
 
 export default function App() {
@@ -17,12 +19,15 @@ export default function App() {
     <>
       <a className="skip-link" href="#main">Skip to content</a>
       <GridBackground />
+      <Spotlight />
+      <div className="film-grain" aria-hidden="true" />
       <ScrollProgress />
       <Nav />
 
       <main id="main">
         <Hero />
         <Stats />
+        <Marquee />
         <About />
         <Skills />
         <Experience />

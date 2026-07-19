@@ -129,30 +129,69 @@ export const projects = [
   },
   {
     name: 'RAG Streamlit App',
-    period: '2025',
+    period: '2026',
     featured: true,
-    tags: ['Python', 'RAG', 'Vector DB', 'LLM'],
+    tags: ['Python', 'RAG', 'Streamlit', 'Vector DB', 'LLM'],
     blurb:
       'Retrieval-Augmented Generation app with document ingestion, vector retrieval and context-grounded answers.',
     highlights: [
-      'Interactive UI for ingesting documents and querying them with grounded, cited answers.',
+      'Interactive Streamlit UI for ingesting documents and querying them with grounded answers.',
       'Vector retrieval pipeline feeding an LLM for accurate, hallucination-resistant responses.',
     ],
-    url: 'https://github.com/sachin-2004jlr',
+    url: 'https://github.com/sachin-2004jlr/rag-streamlit-app',
   },
   {
-    name: 'Stock Price Prediction',
+    name: 'Video Summarizer',
+    period: '2025',
+    featured: true,
+    tags: ['Python', 'Deep Learning', 'NLP', 'Summarization'],
+    blurb:
+      'Deep-learning educational video summarizer that extracts and condenses key points from long videos.',
+    highlights: [
+      'Transcribes long lecture videos and distills them into concise, study-ready key points.',
+      'Applies NLP summarization over extracted transcripts to speed up learning.',
+    ],
+    url: 'https://github.com/sachin-2004jlr/Video_summarizer',
+  },
+  {
+    name: 'Cancer Detection (ML)',
+    period: '2025',
+    featured: false,
+    tags: ['Python', 'Scikit-learn', 'XGBoost', 'SVM', 'Random Forest'],
+    blurb:
+      'Machine-learning pipeline predicting cancer diagnosis, comparing Random Forest, SVM and XGBoost.',
+    highlights: [
+      'Benchmarked Random Forest, SVM and XGBoost with hyperparameter tuning.',
+      'Evaluated with precision, recall and ROC to select the best-performing diagnostic model.',
+    ],
+    url: 'https://github.com/sachin-2004jlr/cancer-detection-ml',
+  },
+  {
+    name: 'Sentiment Analysis of Customer Reviews',
+    period: '2025',
+    featured: false,
+    tags: ['Python', 'NLP', 'Sentiment Analysis'],
+    blurb:
+      'NLP pipeline classifying the sentiment of customer reviews to surface product-feedback signals.',
+    highlights: [
+      'Text preprocessing and feature extraction over real customer-review data.',
+      'Sentiment classification to quantify positive vs. negative feedback at scale.',
+    ],
+    url: 'https://github.com/sachin-2004jlr/Sentimental-Analysis-of-Customer-Reviews',
+  },
+  {
+    name: 'Stock Price Prediction & EDA',
     period: 'Apr — May 2025',
     featured: false,
-    tags: ['Python', 'TensorFlow', 'Keras', 'LSTM'],
+    tags: ['Python', 'TensorFlow', 'Keras', 'LSTM', 'EDA'],
     blurb:
-      'LSTM deep-learning model forecasting stock prices from historical market data.',
+      'LSTM forecasting plus exploratory analysis of historical stock prices, trends and volatility.',
     highlights: [
       'MinMax scaling and sliding-window sequence generation for time-series preprocessing.',
-      'Tuned hyperparameters to reduce overfitting; evaluated with MAE for precise predictions on unseen data.',
-      'Visualized loss curves and prediction-vs-actual trends with Matplotlib.',
+      'Tuned hyperparameters to reduce overfitting; evaluated with MAE on unseen data.',
+      'EDA with cleaning, visualizations and company-specific stock-trend insights.',
     ],
-    url: 'https://github.com/sachin-2004jlr',
+    url: 'https://github.com/sachin-2004jlr/stock-price-prediction-eda',
   },
   {
     name: 'Real-Time Face Detection',
@@ -166,11 +205,11 @@ export const projects = [
       'Optimized the video capture and frame pipeline to handle live streams with minimal latency.',
       'Tuned classifier parameters to reduce false positives while keeping high recall.',
     ],
-    url: 'https://github.com/sachin-2004jlr',
+    url: 'https://github.com/sachin-2004jlr/FACE-DETECTION',
   },
   {
     name: 'QA Bot',
-    period: '2025',
+    period: '2026',
     featured: false,
     tags: ['Python', 'NLP', 'LLM'],
     blurb:
@@ -178,11 +217,11 @@ export const projects = [
     highlights: [
       'Context-aware retrieval and generation for accurate answers to user queries.',
     ],
-    url: 'https://github.com/sachin-2004jlr',
+    url: 'https://github.com/sachin-2004jlr/qa-bot',
   },
   {
     name: 'Titanic Survival Prediction',
-    period: '2024',
+    period: '2025',
     featured: false,
     tags: ['Python', 'Scikit-learn', 'Jupyter'],
     blurb:
@@ -190,7 +229,7 @@ export const projects = [
     highlights: [
       'End-to-end pipeline: cleaning, feature engineering, model training and evaluation.',
     ],
-    url: 'https://github.com/sachin-2004jlr',
+    url: 'https://github.com/sachin-2004jlr/Titanic_Survival_prediction',
   },
 ]
 
