@@ -17,7 +17,7 @@ export default function About() {
       <div className="about__grid">
         <Reveal className="about__lead">
           <p>
-            I'm an <strong>AI Engineer &amp; Full-Stack Developer</strong> who loves the whole
+            I'm a <strong>Full Stack AI Engineer</strong> who loves the whole
             arc — from a raw model or a fuzzy idea, all the way to a polished product people
             actually use. My sweet spot is the intersection of <em>Generative AI</em> and{' '}
             <em>production-grade engineering</em>.

@@ -7,8 +7,8 @@ export const profile = {
   name: 'Sachin S',
   firstName: 'Sachin',
   lastName: 'S',
-  roles: ['AI Engineer', 'Full-Stack Developer', 'ML & GenAI Builder'],
-  tagline: 'AI Engineer & Full-Stack Developer',
+  roles: ['Full Stack AI Engineer', 'Generative AI Builder', 'ML Engineer'],
+  tagline: 'Full Stack AI Engineer',
   location: 'Bengaluru, India',
   based: 'Based in Bengaluru, India',
   availability: 'Open to opportunities',
@@ -18,11 +18,11 @@ export const profile = {
   photoWidth: 760,
   photoHeight: 1007,
   // Big editorial headline words
-  headline: ['AI', 'ENGINEER'],
+  headline: ['Full Stack', 'AI Engineer'],
   summary:
-    'AI Engineer and Full-Stack Developer with hands-on experience building AI-powered applications, semantic search systems, and scalable web platforms. I work across Python, React, Flask, machine learning, NLP and vector databases — with a strong focus on Generative AI and intelligent automation.',
+    'Full Stack AI Engineer with hands-on experience building AI-powered applications, semantic search systems, and scalable web platforms. I work across Python, React, Flask, machine learning, NLP and vector databases — with a strong focus on Generative AI and intelligent automation.',
   statement:
-    "I'm an AI Engineer & Full-Stack Developer who builds intelligent, production-grade applications — from model to interface.",
+    "I'm a Full Stack AI Engineer who builds intelligent, production-grade applications — from model to interface.",
   services: ['AI & Generative AI', 'Full-Stack (Web)', 'ML & Data Pipelines'],
   email: 'sachin2004jlr@gmail.com',
   resumeUrl: './SACHIN_RESUME.pdf',
