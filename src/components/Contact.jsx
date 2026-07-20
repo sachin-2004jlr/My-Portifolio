@@ -1,10 +1,23 @@
+import { useState } from 'react'
 import Reveal from './Reveal'
 import { profile, socials } from '../data/content'
-import { GitHubIcon, LinkedInIcon, MailIcon, ArrowUpRight } from './Icons'
+import { GitHubIcon, LinkedInIcon, MailIcon, ArrowUpRight, CopyIcon, CheckIcon } from './Icons'
 
 const socialIcon = { github: GitHubIcon, linkedin: LinkedInIcon, mail: MailIcon }
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false)
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1800)
+    } catch {
+      /* clipboard blocked — the mailto button still works */
+    }
+  }
+
   return (
     <section className="section contact" id="contact">
       <div className="contact__panel">
@@ -21,6 +34,15 @@ export default function Contact() {
           <a className="btn btn--lg" href={`mailto:${profile.email}`}>
             <MailIcon /> {profile.email}
           </a>
+          <button
+            type="button"
+            className={`contact__copy ${copied ? 'is-copied' : ''}`}
+            onClick={copyEmail}
+            aria-label={copied ? 'Email copied' : 'Copy email address'}
+          >
+            {copied ? <CheckIcon /> : <CopyIcon />}
+            <span>{copied ? 'Copied' : 'Copy'}</span>
+          </button>
         </Reveal>
 
         <Reveal className="contact__links" delay={0.2}>

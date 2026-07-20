@@ -44,12 +44,13 @@ export default function Certifications() {
         sub={`${certifications.length} verified credentials across Generative AI, cloud and data.`}
       />
 
-      <Reveal className="work__filters">
+      <Reveal className="work__filters" role="group" aria-label="Filter certifications by issuer">
         {filters.map((f) => (
           <button
             key={f.key}
             className={`work__filter ${filter === f.key ? 'is-active' : ''}`}
             onClick={() => setFilter(f.key)}
+            aria-pressed={filter === f.key}
           >
             {f.key} <span className="work__filter-count">{f.count}</span>
           </button>

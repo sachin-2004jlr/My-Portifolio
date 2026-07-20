@@ -120,6 +120,23 @@ export function SparkIcon(props) {
   )
 }
 
+export function CopyIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="9" y="9" width="12" height="12" rx="2.5" />
+      <path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1" />
+    </svg>
+  )
+}
+
+export function CheckIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <path d="m5 12 5 5L20 7" />
+    </svg>
+  )
+}
+
 export function MapPinIcon(props) {
   return (
     <svg {...base} {...props}>

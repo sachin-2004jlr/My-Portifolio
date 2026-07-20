@@ -18,16 +18,18 @@ export default function Projects() {
         sub="A mix of production platforms, deep-learning models and applied ML."
       />
 
-      <Reveal className="work__filters">
+      <Reveal className="work__filters" role="group" aria-label="Filter projects">
         <button
           className={`work__filter ${filter === 'all' ? 'is-active' : ''}`}
           onClick={() => setFilter('all')}
+          aria-pressed={filter === 'all'}
         >
           All work
         </button>
         <button
           className={`work__filter ${filter === 'featured' ? 'is-active' : ''}`}
           onClick={() => setFilter('featured')}
+          aria-pressed={filter === 'featured'}
         >
           Featured
         </button>

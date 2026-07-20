@@ -768,3 +768,35 @@ html { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
   .spotlight-grid { display: none; }
   .btn::after { display: none; }
 }
+
+
+/* ---------- Contact: copy-email ---------- */
+.contact__actions { gap: 0.8rem; align-items: center; flex-wrap: wrap; }
+.contact__copy {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.85rem 1.1rem; border-radius: 6px;
+  font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--paper) 26%, transparent);
+  background: transparent;
+  transition: border-color .2s, color .2s, transform .2s;
+}
+.contact__copy:hover { border-color: var(--paper); transform: translateY(-2px); }
+.contact__copy.is-copied { color: var(--accent); border-color: var(--accent); }
+.contact__copy svg { font-size: 1.05em; }
+
+/* ---------- Print (clean "Save as PDF" for recruiters) ---------- */
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .grid-bg, .spotlight-grid, .film-grain, .scroll-progress, .to-top,
+  .skip-link, .marquee, .nav, .contact__copy { display: none !important; }
+  * { animation: none !important; transition: none !important; }
+  .hero { min-height: auto !important; padding-top: 1rem !important; }
+  section, .hero, .project, .cert-card, .skill-card, .timeline__item, .about__card {
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .project:hover, .skill-card:hover, .cert-card:hover, .tag:hover {
+    transform: none !important; box-shadow: none !important;
+  }
+}
