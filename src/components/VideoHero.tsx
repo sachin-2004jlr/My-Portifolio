@@ -121,7 +121,7 @@ export default function VideoHero() {
       <nav className="relative z-20 pl-6 pr-6 py-6">
         <div className="liquid-glass rounded-full px-6 py-3 flex items-center justify-between max-w-5xl mx-auto">
           <div className="flex items-center gap-8">
-            <a href="#top" className="flex items-center gap-2 text-white font-semibold text-lg">
+            <a href="#top" className="flex items-center gap-2 text-white font-semibold text-lg whitespace-nowrap">
               <Globe size={24} />
               Sachin S
             </a>
@@ -136,11 +136,11 @@ export default function VideoHero() {
               href="https://github.com/sachin-2004jlr"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white text-sm font-medium hover:text-white/80 transition-colors"
+              className="hidden sm:inline text-white text-sm font-medium hover:text-white/80 transition-colors whitespace-nowrap"
             >
               GitHub
             </a>
-            <a href="#contact" className="liquid-glass rounded-full px-6 py-2 text-white text-sm font-medium">
+            <a href="#contact" className="liquid-glass rounded-full px-6 py-2 text-white text-sm font-medium whitespace-nowrap">
               Get in touch
             </a>
           </div>
