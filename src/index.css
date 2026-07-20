@@ -799,4 +799,56 @@ html { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
   .project:hover, .skill-card:hover, .cert-card:hover, .tag:hover {
     transform: none !important; box-shadow: none !important;
   }
+  .work__sticky { position: static !important; min-height: 0 !important; margin-bottom: 1rem; }
+  .work__sticky .project { transform: none !important; }
+}
+
+/* ============================================================
+   Template-inspired effects — adapted to the editorial system,
+   built only from Sachin's own content. No external assets.
+   ============================================================ */
+
+/* 1. Gradient headline — one warm-to-ink wash across the name.
+   Applied to both the plain <h1> (reduced-motion) and the per-letter
+   spans; a shared vertical gradient keeps every glyph consistent. */
+.hero__title,
+.hero__title-char {
+  background: linear-gradient(176deg, var(--ink) 42%, var(--accent) 128%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* 2. Scroll-reveal About text — glyphs fade dim→full on the way past.
+   Words stay whole so line-wrapping matches the rest of the type. */
+.anim-text { margin-bottom: 1.2rem; }
+.anim-text__word { display: inline-block; }
+
+/* 3. Sticky-stacking project cards — each card pins under the nav and the
+   ones beneath shrink, so the work reads as a physical deck being dealt. */
+.work__stack { position: relative; }
+.work__sticky {
+  position: sticky;
+  min-height: 64vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.work__sticky .project {
+  width: min(720px, 100%);
+  transform-origin: top center;
+  /* framer-motion drives the scale via inline transform — keep it out of
+     the CSS transition so scroll stays smooth. */
+  transition: box-shadow .25s, border-color .25s;
+  box-shadow: 0 34px 70px -46px rgba(16, 15, 13, 0.5);
+}
+.work__sticky .project:hover {
+  box-shadow: 0 44px 80px -40px rgba(16, 15, 13, 0.62);
+  border-color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .work__sticky { min-height: 74vh; }
+  .work__sticky .project { width: 100%; }
 }
