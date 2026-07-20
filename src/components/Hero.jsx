@@ -52,7 +52,6 @@ export default function Hero() {
     ...projects.filter((p) => !p.featured),
   ].slice(0, 3)
 
-  const portraitRef = useMagnetic({ strength: 0.2 })
   const ctaPrimary = useMagnetic({ strength: 0.25 })
   const ctaGhost = useMagnetic({ strength: 0.25 })
 
@@ -89,7 +88,7 @@ export default function Hero() {
         </div>
 
         <div className="hero__portrait">
-          <div className="hero__portrait-frame" ref={portraitRef}>
+          <div className="hero__portrait-frame">
             <picture>
               <source srcSet={profile.photoWebp} type="image/webp" />
               <img
