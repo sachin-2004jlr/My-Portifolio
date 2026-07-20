@@ -1,9 +1,9 @@
 <div align="center">
 
-# ◆ Sachin S — Cinematic Portfolio
+# ▚ Sachin S — Editorial Portfolio
 
-**A dark, cinematic portfolio** for a Full Stack AI Engineer — a full-screen looping
-video hero, liquid-glass UI, and an editorial dark-glass content system.
+**A bold, editorial single-page portfolio** for an AI Engineer & Full-Stack Developer.
+Big typographic headline, dotted-grid canvas, grayscale portrait, monospace micro-type.
 
 [Sections](#-sections) · [Tech stack](#-tech-stack) · [Run locally](#-run-locally) · [Deploy](#-deploy)
 
@@ -13,43 +13,34 @@ video hero, liquid-glass UI, and an editorial dark-glass content system.
 
 ## ✦ Overview
 
-A single-page portfolio with a **full-screen self-hosted background video** (custom
-rAF-based fade-loop, no CSS transitions), **liquid-glass** navigation and controls, an
-elegant **Instrument Serif** hero, and a monochrome dark theme with one warm accent. The
-content sections (About, Skills, Experience, Work, Certifications, Contact) carry the same
-dark-glass language, with 3D tilt, magnetic buttons, a skills marquee, a cursor grid
-spotlight, film grain, count-up stats and scroll-reveal cinematics.
+A fast, static, editorial portfolio: a giant display headline, a fine dotted-grid
+background, a face-cropped grayscale portrait, and a strict monochrome palette with a
+single warm signal accent. Everything — fonts included — is bundled at build time, so the
+site makes **zero external network requests** at runtime.
 
 ## ✶ Highlights
 
-- **Video hero** — muted, autoplaying, self-hosted (compressed 19 MB → 1.5 MB) with a
-  poster frame; seamless loop via a 500 ms `requestAnimationFrame` fade in/out that
-  resumes from the current opacity and cancels competing frames. Holds a still frame under
-  `prefers-reduced-motion`.
-- **Liquid glass** — `backdrop-filter` blur, inset highlight, and a gradient border drawn
-  with the mask-composite trick.
-- **Cinematic motion** — cursor grid-spotlight, film grain, skills marquee, background
-  parallax, 3D tilt cards, magnetic buttons, count-up stats, drawn-in section rules.
-- **Accessible** — semantic landmarks, skip link, focus styles, WCAG-AA accent, and all
-  motion off for `prefers-reduced-motion`.
-- **13 verifiable certifications** (filterable) · **9 linked projects** · full SEO +
-  structured data + a designed dark social card.
+- **Editorial type system** — Space Grotesk display, JetBrains Mono micro-labels, Inter body.
+- **Dotted-grid canvas** — masked CSS grid that fades into the page.
+- **Grayscale portrait** — tightly cropped to the face with a duotone-free B&W grade.
+- **Motion** — framer-motion scroll reveals, animated headline, scroll-progress bar.
+- **Accessible** — semantic landmarks, keyboard focus styles, `prefers-reduced-motion` respected, `noscript` fallback.
+- **Lightweight** — no 3D/WebGL; ~93 kB gzipped JS. Portable relative asset base for any static host.
 
 ## ▤ Sections
 
-Video Hero · Stats · Skills marquee · About · Skills · Experience · Work · Certifications · Contact
+Hero · About · Skills · Experience · Selected Work · Certifications · Contact
 
-All content lives in [`src/data/content.js`](src/data/content.js).
+All content lives in a single file — [`src/data/content.js`](src/data/content.js). Edit it to update the site; no component changes required.
 
 ## ⚙ Tech Stack
 
 | Area      | Tools |
 |-----------|-------|
-| Framework | React 18, Vite 7, TypeScript |
-| Styling   | Tailwind CSS 3 (utilities) + hand-written CSS design system |
-| Icons     | lucide-react + inline brand SVGs |
-| Motion    | framer-motion + custom rAF effects |
-| Type      | Instrument Serif · Space Grotesk · Inter · JetBrains Mono |
+| Framework | React 18, Vite 7 |
+| Motion    | framer-motion |
+| Type      | Space Grotesk · Inter · JetBrains Mono (self-hosted via Fontsource) |
+| Styling   | Hand-written modern CSS (custom properties, editorial layout) |
 
 ## ▶ Run locally
 
@@ -58,29 +49,38 @@ npm install
 npm run dev        # start Vite dev server
 npm run build      # production build → dist/
 npm run preview    # preview the production build
+npm run lint       # lint the source
 ```
 
 > Requires Node 18+ (developed on Node 24).
 
 ## ▦ Customize
 
-- **Content** — edit [`src/data/content.js`](src/data/content.js).
-- **Hero video** — replace [`public/hero.mp4`](public/) + `public/hero-poster.jpg`.
-- **Accent** — `--accent` / `--accent-deep` in [`src/index.css`](src/index.css).
-- **Social card** — [`public/og.jpg`](public/) (1200×630).
+- **Text/content** — edit [`src/data/content.js`](src/data/content.js).
+- **Accent colour** — `--accent` (vivid, decorative) and `--accent-deep` (AA-safe, for small text) in [`src/index.css`](src/index.css).
+- **Portrait** — the original lives in [`source-assets/`](source-assets/) (not deployed). The site serves a
+  background-removed cut-out as `public/sachin.webp` (+ `sachin.png` fallback). To swap it: drop in a new
+  photo, remove the background, and export both formats at ~760px wide.
+- **Social card** — [`public/og.jpg`](public/) (1200×630), referenced by `og:image` in `index.html`.
+- **Resume download** — drop a `SACHIN_RESUME.pdf` into [`public/`](public/) (already referenced in `content.js`).
 
 ## 🌐 Deploy
 
-**GitHub Pages** via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
-(Settings → Pages → Source: GitHub Actions). **Netlify / Vercel**: build `npm run build`,
-publish `dist`.
+This is a static site — build it and host the `dist/` folder anywhere.
 
-## 🔒 Notes on assets
+```bash
+npm run build      # outputs static files to dist/
+```
 
-- The hero video is **self-hosted** (downloaded from the original and compressed) — nothing
-  is hotlinked from a third-party CDN.
-- Fonts (Instrument Serif via Google Fonts) and the video are the only runtime external
-  requests; everything else is bundled.
+**Netlify / Vercel** — build command `npm run build`, publish directory `dist`.
+Any static host works (the asset base is relative).
+
+## 🔒 Security
+
+- No secrets, API keys or `.env` files are committed (`.gitignore` blocks them).
+- No runtime external requests; no third-party analytics or trackers.
+- All links use `rel="noopener noreferrer"` on `target="_blank"`.
+- Dependencies audited with `npm audit` — **0 vulnerabilities**.
 
 ## 📬 Contact
 
