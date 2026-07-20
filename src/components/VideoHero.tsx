@@ -18,6 +18,18 @@ export default function VideoHero() {
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
+
+    // Respect reduced-motion: hold a single still frame (the poster), no loop/fade.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const still = () => {
+        video.pause()
+        video.style.opacity = '1'
+      }
+      video.addEventListener('loadeddata', still)
+      still()
+      return () => video.removeEventListener('loadeddata', still)
+    }
+
     video.style.opacity = '0'
 
     // rAF-based opacity fade that resumes from the current opacity and
