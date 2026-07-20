@@ -1,9 +1,15 @@
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
+import AnimatedText from './AnimatedText'
 import { profile, education, socials } from '../data/content'
 import { GitHubIcon, LinkedInIcon, MailIcon } from './Icons'
 
 const socialIcon = { github: GitHubIcon, linkedin: LinkedInIcon, mail: MailIcon }
+
+const P1 =
+  "I'm a Full Stack AI Engineer who loves the whole arc — from a raw model or a fuzzy idea, all the way to a polished product people actually use. My sweet spot is the intersection of Generative AI and production-grade engineering."
+const P2 =
+  "Lately I've been building an AI-powered talent-matching platform: semantic search with vector embeddings, resume parsing and ATS scoring, real-time messaging, and the unglamorous-but-essential pieces like auth, access control and rate limiting. I care about systems that are intelligent and dependable."
 
 export default function About() {
   return (
@@ -16,18 +22,8 @@ export default function About() {
 
       <div className="about__grid">
         <Reveal className="about__lead">
-          <p>
-            I'm a <strong>Full Stack AI Engineer</strong> who loves the whole
-            arc — from a raw model or a fuzzy idea, all the way to a polished product people
-            actually use. My sweet spot is the intersection of <em>Generative AI</em> and{' '}
-            <em>production-grade engineering</em>.
-          </p>
-          <p>
-            Lately I've been building an AI-powered talent-matching platform: semantic search
-            with vector embeddings, resume parsing and ATS scoring, real-time messaging, and
-            the unglamorous-but-essential pieces like auth, access control and rate limiting.
-            I care about systems that are intelligent <em>and</em> dependable.
-          </p>
+          <AnimatedText text={P1} className="about__para" />
+          <AnimatedText text={P2} className="about__para" />
 
           <div className="about__socials">
             {socials.map((s) => {
