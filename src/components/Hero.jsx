@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { profile, projects } from '../data/content'
 import { ArrowUpRight, ArrowDownRight } from './Icons'
-import useTilt from '../hooks/useTilt'
 import useMagnetic from '../hooks/useMagnetic'
 
 const rise = {
@@ -53,7 +52,7 @@ export default function Hero() {
     ...projects.filter((p) => !p.featured),
   ].slice(0, 3)
 
-  const portraitRef = useTilt({ max: 6, scale: 1.01, lift: 0 })
+  const portraitRef = useMagnetic({ strength: 0.2 })
   const ctaPrimary = useMagnetic({ strength: 0.25 })
   const ctaGhost = useMagnetic({ strength: 0.25 })
 
