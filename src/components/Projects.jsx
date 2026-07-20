@@ -1,12 +1,67 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
-import TiltCard from './TiltCard'
 import { projects } from '../data/content'
 import { ArrowUpRight } from './Icons'
 
+// One card in the sticky stack. As the section scrolls, earlier cards shrink
+// while later ones slide up and settle on top — a physical "deck" of work.
+function StackCard({ p, i, total, progress }) {
+  const targetScale = 1 - (total - 1 - i) * 0.035
+  const scale = useTransform(progress, [i / total, 1], [1, targetScale])
+
+  return (
+    <div
+      className="work__sticky"
+      style={{ top: `calc(var(--nav-h, 72px) + 1.75rem + ${i * 16}px)` }}
+    >
+      <motion.article
+        className={`project ${p.featured ? 'project--featured' : ''}`}
+        style={{ scale }}
+      >
+        <div className="project__top">
+          <span className="project__period">{p.period}</span>
+          {p.featured && <span className="project__badge">Featured</span>}
+        </div>
+        <h3 className="project__name">{p.name}</h3>
+        {p.company && (
+          <p className="project__company">
+            {p.company}
+            {p.private && <span className="project__private">Private</span>}
+          </p>
+        )}
+        <p className="project__blurb">{p.blurb}</p>
+        <ul className="project__points">
+          {p.highlights.map((h, idx) => (
+            <li key={idx}>{h}</li>
+          ))}
+        </ul>
+        <ul className="project__tags">
+          {p.tags.map((t) => (
+            <li key={t} className="tag">{t}</li>
+          ))}
+        </ul>
+        {p.url ? (
+          <a className="project__link" href={p.url} target="_blank" rel="noopener noreferrer">
+            View on GitHub <ArrowUpRight />
+          </a>
+        ) : (
+          <span className="project__note">Private company project · {p.company}</span>
+        )}
+      </motion.article>
+    </div>
+  )
+}
+
 export default function Projects() {
   const [filter, setFilter] = useState('all')
+  const stackRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: stackRef,
+    offset: ['start start', 'end end'],
+  })
+
   const shown = filter === 'featured' ? projects.filter((p) => p.featured) : projects
 
   return (
@@ -35,41 +90,9 @@ export default function Projects() {
         </button>
       </Reveal>
 
-      <div className="work__grid">
+      <div className="work__stack" ref={stackRef}>
         {shown.map((p, i) => (
-          <Reveal className="work__cell" key={p.name} delay={(i % 3) * 0.05}>
-          <TiltCard as="article" className={`project ${p.featured ? 'project--featured' : ''}`}>
-            <div className="project__top">
-              <span className="project__period">{p.period}</span>
-              {p.featured && <span className="project__badge">Featured</span>}
-            </div>
-            <h3 className="project__name">{p.name}</h3>
-            {p.company && (
-              <p className="project__company">
-                {p.company}
-                {p.private && <span className="project__private">Private</span>}
-              </p>
-            )}
-            <p className="project__blurb">{p.blurb}</p>
-            <ul className="project__points">
-              {p.highlights.map((h, idx) => (
-                <li key={idx}>{h}</li>
-              ))}
-            </ul>
-            <ul className="project__tags">
-              {p.tags.map((t) => (
-                <li key={t} className="tag">{t}</li>
-              ))}
-            </ul>
-            {p.url ? (
-              <a className="project__link" href={p.url} target="_blank" rel="noopener noreferrer">
-                View on GitHub <ArrowUpRight />
-              </a>
-            ) : (
-              <span className="project__note">Private company project · {p.company}</span>
-            )}
-          </TiltCard>
-          </Reveal>
+          <StackCard key={p.name} p={p} i={i} total={shown.length} progress={scrollYProgress} />
         ))}
       </div>
     </section>
