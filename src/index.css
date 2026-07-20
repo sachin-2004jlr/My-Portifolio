@@ -387,8 +387,8 @@ main { position: relative; z-index: 1; }
   width: 100%;
   height: auto;
   display: block;
-  /* Cut-out figure, black & white, blending into the paper background */
-  filter: grayscale(1) contrast(1.06);
+  /* Full-colour cut-out figure, gently sharpened, fading into the paper */
+  filter: contrast(1.03) saturate(1.04);
   -webkit-mask-image: linear-gradient(to bottom, #000 90%, transparent 100%);
           mask-image: linear-gradient(to bottom, #000 90%, transparent 100%);
 }
