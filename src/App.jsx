@@ -1,6 +1,5 @@
-import Nav from './components/Nav'
 import ScrollProgress from './components/ScrollProgress'
-import Hero from './components/Hero'
+import VideoHero from './components/VideoHero'
 import Stats from './components/Stats'
 import About from './components/About'
 import Skills from './components/Skills'
@@ -22,10 +21,9 @@ export default function App() {
       <Spotlight />
       <div className="film-grain" aria-hidden="true" />
       <ScrollProgress />
-      <Nav />
 
       <main id="main">
-        <Hero />
+        <VideoHero />
         <Stats />
         <Marquee />
         <About />
