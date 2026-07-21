@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import { projects } from '../data/content'
@@ -7,7 +7,7 @@ import { ArrowUpRight } from './Icons'
 
 // One card in the sticky stack. As the section scrolls, earlier cards shrink
 // while later ones slide up and settle on top — a physical "deck" of work.
-function StackCard({ p, i, total, progress }) {
+function StackCard({ p, i, total, progress, reduce }) {
   const targetScale = 1 - (total - 1 - i) * 0.035
   const scale = useTransform(progress, [i / total, 1], [1, targetScale])
 
@@ -18,10 +18,15 @@ function StackCard({ p, i, total, progress }) {
     >
       <motion.article
         className={`project ${p.featured ? 'project--featured' : ''}`}
-        style={{ scale }}
+        style={reduce ? undefined : { scale }}
       >
         <div className="project__top">
-          <span className="project__period">{p.period}</span>
+          <span className="project__meta">
+            <span className="project__index">
+              {String(i + 1).padStart(2, '0')}/{String(total).padStart(2, '0')}
+            </span>
+            <span className="project__period">{p.period}</span>
+          </span>
           {p.featured && <span className="project__badge">Featured</span>}
         </div>
         <h3 className="project__name">{p.name}</h3>
@@ -56,6 +61,8 @@ function StackCard({ p, i, total, progress }) {
 
 export default function Projects() {
   const [filter, setFilter] = useState('all')
+  const reduce = useReducedMotion()
+  const featuredCount = projects.filter((p) => p.featured).length
   const stackRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: stackRef,
@@ -79,20 +86,27 @@ export default function Projects() {
           onClick={() => setFilter('all')}
           aria-pressed={filter === 'all'}
         >
-          All work
+          All work <span className="work__filter-count">{projects.length}</span>
         </button>
         <button
           className={`work__filter ${filter === 'featured' ? 'is-active' : ''}`}
           onClick={() => setFilter('featured')}
           aria-pressed={filter === 'featured'}
         >
-          Featured
+          Featured <span className="work__filter-count">{featuredCount}</span>
         </button>
       </Reveal>
 
       <div className="work__stack" ref={stackRef}>
         {shown.map((p, i) => (
-          <StackCard key={p.name} p={p} i={i} total={shown.length} progress={scrollYProgress} />
+          <StackCard
+            key={p.name}
+            p={p}
+            i={i}
+            total={shown.length}
+            progress={scrollYProgress}
+            reduce={reduce}
+          />
         ))}
       </div>
     </section>

@@ -809,15 +809,22 @@ html { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
    ============================================================ */
 
 /* 1. Gradient headline — one warm-to-ink wash across the name.
-   Applied to both the plain <h1> (reduced-motion) and the per-letter
-   spans; a shared vertical gradient keeps every glyph consistent. */
-.hero__title,
-.hero__title-char {
+   The clip is applied to .hero__title-glyph (a plain, untransformed span)
+   and never to the element carrying the 3D flip: a background-clip:text
+   element that is also 3D-composited can drop its clip and paint the whole
+   background box as a solid rectangle. Keeping them apart avoids that. */
+.hero__title--plain,
+.hero__title-glyph {
   background: linear-gradient(176deg, var(--ink) 42%, var(--accent) 128%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+}
+.hero__title-glyph {
+  display: inline-block;
+  white-space: pre;
+  /* No transform here — the parent .hero__title-char owns the motion. */
 }
 
 /* 2. Scroll-reveal About text — glyphs fade dim→full on the way past.
@@ -848,7 +855,27 @@ html { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
   border-color: var(--ink);
 }
 
+/* Deck position marker — "03/09" — so a long stack stays navigable. */
+.project__meta { display: flex; align-items: center; gap: 0.7rem; }
+.project__index {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--accent-deep);
+}
+
 @media (max-width: 640px) {
   .work__sticky { min-height: 74vh; }
   .work__sticky .project { width: 100%; }
+}
+
+/* No pinning or scaling when motion is reduced — a plain, readable list. */
+@media (prefers-reduced-motion: reduce) {
+  .work__sticky {
+    position: static;
+    min-height: 0;
+    margin-bottom: 1.2rem;
+    top: auto !important;
+  }
+  .work__sticky .project { transform: none !important; }
 }
