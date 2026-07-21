@@ -24,7 +24,7 @@ const char = {
 }
 
 function Title({ name, reduce }) {
-  if (reduce) return <h1 className="hero__title">{name}</h1>
+  if (reduce) return <h1 className="hero__title hero__title--plain">{name}</h1>
   return (
     <h1 className="hero__title" aria-label={name}>
       {name.split('').map((c, i) => (
@@ -37,7 +37,10 @@ function Title({ name, reduce }) {
           custom={i}
           aria-hidden="true"
         >
-          {c === ' ' ? ' ' : c}
+          {/* The 3D flip lives on the outer span and the gradient text-clip on
+              the inner one. Keeping them on separate elements avoids the
+              compositing bug where a clipped background paints as a solid box. */}
+          <span className="hero__title-glyph">{c === ' ' ? ' ' : c}</span>
         </motion.span>
       ))}
     </h1>
