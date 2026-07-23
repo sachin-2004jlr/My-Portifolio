@@ -691,27 +691,11 @@ main { position: relative; z-index: 1; }
 }
 
 /* ---------- Reduced motion ---------- */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-
 /* ---------- Recent-work stack: 3D fan-out on hover ---------- */
 .hero__work-stack:hover .hero__work-card:nth-child(1) { transform: rotate(-12deg) translate(-26px, -12px) rotateY(9deg); }
 .hero__work-stack:hover .hero__work-card:nth-child(2) { transform: rotate(1deg) translate(10px, -4px) rotateY(0deg); }
 .hero__work-stack:hover .hero__work-card:nth-child(3) { transform: rotate(14deg) translate(46px, 10px) rotateY(-9deg); }
 .hero__work-stack:hover .hero__work-card { box-shadow: 0 18px 34px -18px rgba(0,0,0,.55); }
-
-/* ---------- Reduced motion: disable 3D/tilt entirely ---------- */
-@media (prefers-reduced-motion: reduce) {
-  .tilt, .hero__portrait-frame, .hero__work-card, .btn { transition: none !important; transform: none !important; }
-  .hero__work-stack:hover .hero__work-card { transform: none !important; }
-}
 
 
 /* ============================================================
@@ -776,13 +760,6 @@ html { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
 }
 .marquee__dot { color: var(--accent); font-size: 0.55em; }
 @keyframes marquee { to { transform: translateX(-50%); } }
-
-@media (prefers-reduced-motion: reduce) {
-  .film-grain, .marquee__inner { animation: none !important; }
-  .grid-bg { transform: none !important; }
-  .spotlight-grid { display: none; }
-  .btn::after { display: none; }
-}
 
 
 /* ---------- Contact: copy-email ---------- */
@@ -883,13 +860,24 @@ html { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
   .work__sticky .project { width: 100%; }
 }
 
-/* No pinning or scaling when motion is reduced — a plain, readable list. */
+/* ============================================================
+   Reduced motion — one consolidated block. Every animated/pinned
+   effect degrades to a static, readable state.
+   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
-  .work__sticky {
-    position: static;
-    min-height: 0;
-    margin-bottom: 1.2rem;
-    top: auto !important;
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
+  .tilt, .hero__portrait-frame, .hero__work-card, .btn { transition: none !important; transform: none !important; }
+  .hero__work-stack:hover .hero__work-card { transform: none !important; }
+  .film-grain, .marquee__inner { animation: none !important; }
+  .grid-bg { transform: none !important; }
+  .spotlight-grid { display: none; }
+  .btn::after { display: none; }
+  /* Sticky project deck becomes a plain, readable list. */
+  .work__sticky { position: static; min-height: 0; margin-bottom: 1.2rem; top: auto !important; }
   .work__sticky .project { transform: none !important; }
 }
