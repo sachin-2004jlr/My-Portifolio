@@ -11,5 +11,15 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: false,
     chunkSizeWarningLimit: 1200,
+    rollupOptions: {
+      output: {
+        // Split the framework + animation library into cacheable vendor
+        // chunks so app-code edits don't bust their long-term cache.
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          motion: ['framer-motion'],
+        },
+      },
+    },
   },
 })

@@ -3,7 +3,7 @@
 # ▚ Sachin S — Editorial Portfolio
 
 **A bold, editorial single-page portfolio** for an AI Engineer & Full-Stack Developer.
-Big typographic headline, dotted-grid canvas, grayscale portrait, monospace micro-type.
+Big typographic headline, dotted-grid canvas, full-colour cut-out portrait, monospace micro-type.
 
 [Sections](#-sections) · [Tech stack](#-tech-stack) · [Run locally](#-run-locally) · [Deploy](#-deploy)
 
@@ -14,18 +14,19 @@ Big typographic headline, dotted-grid canvas, grayscale portrait, monospace micr
 ## ✦ Overview
 
 A fast, static, editorial portfolio: a giant display headline, a fine dotted-grid
-background, a face-cropped grayscale portrait, and a strict monochrome palette with a
+background, a full-colour cut-out portrait, and a strict monochrome palette with a
 single warm signal accent. Everything — fonts included — is bundled at build time, so the
-site makes **zero external network requests** at runtime.
+site makes **zero external network requests** at runtime. Installable as a PWA.
 
 ## ✶ Highlights
 
 - **Editorial type system** — Space Grotesk display, JetBrains Mono micro-labels, Inter body.
 - **Dotted-grid canvas** — masked CSS grid that fades into the page.
-- **Grayscale portrait** — tightly cropped to the face with a duotone-free B&W grade.
-- **Motion** — framer-motion scroll reveals, animated headline, scroll-progress bar.
-- **Accessible** — semantic landmarks, keyboard focus styles, `prefers-reduced-motion` respected, `noscript` fallback.
-- **Lightweight** — no 3D/WebGL; ~93 kB gzipped JS. Portable relative asset base for any static host.
+- **Full-colour portrait** — background-removed cut-out that blends into the paper (paper-matte JPEG fallback + WebP).
+- **Motion** — framer-motion scroll reveals, gradient/flip headline, rotating role, character scroll-reveal, sticky-stacking work deck, scroll-progress bar.
+- **Accessible** — semantic landmarks, `aria-current` nav, keyboard-safe mobile menu, AA contrast, `prefers-reduced-motion` respected, `noscript` fallback.
+- **PWA** — web manifest + maskable icons; installable and offline-capable shell.
+- **Lightweight** — no 3D/WebGL; ~100 kB gzipped JS split into cacheable vendor chunks. Portable relative asset base for any static host.
 
 ## ▤ Sections
 
@@ -59,10 +60,11 @@ npm run lint       # lint the source
 - **Text/content** — edit [`src/data/content.js`](src/data/content.js).
 - **Accent colour** — `--accent` (vivid, decorative) and `--accent-deep` (AA-safe, for small text) in [`src/index.css`](src/index.css).
 - **Portrait** — the original lives in [`source-assets/`](source-assets/) (not deployed). The site serves a
-  background-removed cut-out as `public/sachin.webp` (+ `sachin.png` fallback). To swap it: drop in a new
-  photo, remove the background, and export both formats at ~760px wide.
+  background-removed cut-out as `public/sachin.webp` (760px) + `sachin-480.webp` (mobile) with a
+  paper-matte `sachin.jpg` fallback. To swap it: remove the background and re-export those three.
 - **Social card** — [`public/og.jpg`](public/) (1200×630), referenced by `og:image` in `index.html`.
-- **Resume download** — drop a `SACHIN_RESUME.pdf` into [`public/`](public/) (already referenced in `content.js`).
+- **Resume download** — drop a `SACHIN_RESUME.pdf` into [`public/`](public/); the nav, contact and footer buttons already point at it.
+- **Live demos & profiles** — add a `demo` URL to any project, or more `socials` entries (X, Kaggle, Hugging Face, website — icons already wired) in [`src/data/content.js`](src/data/content.js).
 
 ## 🌐 Deploy
 
