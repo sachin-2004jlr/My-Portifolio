@@ -280,7 +280,6 @@ main { position: relative; z-index: 1; }
 .nav__links a:hover { color: var(--ink); }
 .nav__links a.is-active { color: var(--ink); }
 .nav__links a.is-active::before { content: '/ '; color: var(--accent-deep); }
-.nav__links-cta { margin-left: 0.6rem; }
 .nav__resume {
   display: inline-flex; align-items: center; gap: 0.4rem;
   margin-left: 0.6rem;
@@ -673,8 +672,6 @@ main { position: relative; z-index: 1; }
   }
   .nav__links.is-open { transform: translateY(0); }
   .nav__links a { padding: 0.9rem 0.3rem; font-size: 0.9rem; border-bottom: 1px solid var(--line); }
-  .nav__links-cta { margin: 0.9rem 0 0; }
-  .nav__links-cta .btn { width: 100%; justify-content: center; }
   .nav__burger { display: flex; }
   .exp__item { grid-template-columns: 1fr; gap: 0.8rem; }
   .skills__grid, .certs__grid { grid-template-columns: 1fr; }
