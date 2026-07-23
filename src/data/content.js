@@ -39,13 +39,6 @@ export const socials = [
   { label: 'Email', handle: 'sachin2004jlr@gmail.com', url: 'mailto:sachin2004jlr@gmail.com', icon: 'mail' },
 ]
 
-export const stats = [
-  { value: '9.07', suffix: '/10', label: 'CGPA · B.E. AI & DS' },
-  { value: '6', suffix: '+', label: 'Shipped Projects' },
-  { value: '2', suffix: '', label: 'Engineering Internships' },
-  { value: '3', suffix: '+', label: 'Certifications' },
-]
-
 export const skillGroups = [
   {
     title: 'Generative AI & Agents',
@@ -344,6 +337,15 @@ export const certifications = [
     year: '2024',
     detail: 'Core Python: data types, control structures, functions and problem-solving.',
   },
+]
+
+// Highlight counters — derived from the arrays above so they can never drift
+// out of sync with the real content (9.07 CGPA is the one literal figure).
+export const stats = [
+  { value: certifications.length, suffix: '', label: 'Certifications' },
+  { value: 9.07, decimals: 2, suffix: '/10', label: 'CGPA · B.E. AI & DS' },
+  { value: projects.length, suffix: '', label: 'Projects shipped' },
+  { value: experience.length, suffix: '', label: 'Internships' },
 ]
 
 export const navLinks = [

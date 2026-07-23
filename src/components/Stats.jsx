@@ -1,13 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { certifications, projects, experience } from '../data/content'
-
-const STATS = [
-  { value: certifications.length, suffix: '', label: 'Certifications' },
-  { value: 9.07, decimals: 2, suffix: '/10', label: 'CGPA · B.E. AI & DS' },
-  { value: projects.length, suffix: '+', label: 'Projects shipped' },
-  { value: experience.length, suffix: '', label: 'Internships' },
-]
+import { stats as STATS } from '../data/content'
 
 function Counter({ value, decimals = 0, suffix }) {
   const ref = useRef(null)
