@@ -323,7 +323,9 @@ main { position: relative; z-index: 1; }
   text-transform: uppercase;
   color: var(--accent-deep);
 }
-.hero__kicker-role { display: inline-block; }
+.hero__kicker-role { display: inline-block; transition: opacity .3s ease, transform .3s ease; }
+.hero__kicker-role.is-in { opacity: 1; transform: translateY(0); }
+.hero__kicker-role.is-out { opacity: 0; transform: translateY(-6px); }
 .hero__title {
   margin-top: 0.35rem;
   font-family: var(--font-display);

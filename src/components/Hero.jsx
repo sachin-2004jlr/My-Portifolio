@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { profile, projects } from '../data/content'
 import { ArrowUpRight, ArrowDownRight } from './Icons'
 import useMagnetic from '../hooks/useMagnetic'
@@ -24,27 +24,29 @@ const char = {
   }),
 }
 
-// Cycles the kicker through profile.roles with a soft vertical fade.
+// Cycles the kicker through profile.roles with a soft vertical fade. Uses a
+// plain span + CSS transition (not a nested motion component) so the parent
+// motion.p's variants can't propagate in and freeze it mid-animation.
 function RotatingRole({ roles }) {
   const [i, setI] = useState(0)
+  const [shown, setShown] = useState(true)
   useEffect(() => {
     if (roles.length < 2) return
-    const id = setInterval(() => setI((n) => (n + 1) % roles.length), 2600)
-    return () => clearInterval(id)
+    let swap
+    const id = setInterval(() => {
+      setShown(false)
+      swap = setTimeout(() => {
+        setI((n) => (n + 1) % roles.length)
+        setShown(true)
+      }, 300)
+    }, 2600)
+    return () => {
+      clearInterval(id)
+      clearTimeout(swap)
+    }
   }, [roles.length])
   return (
-    <AnimatePresence mode="wait">
-      <motion.span
-        key={i}
-        className="hero__kicker-role"
-        initial={{ opacity: 0, y: 6 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -6 }}
-        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-      >
-        {roles[i]}
-      </motion.span>
-    </AnimatePresence>
+    <span className={`hero__kicker-role ${shown ? 'is-in' : 'is-out'}`}>{roles[i]}</span>
   )
 }
 
