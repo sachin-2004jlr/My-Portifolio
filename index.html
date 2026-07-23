@@ -8,6 +8,15 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <link rel="manifest" href="./site.webmanifest" />
+    <!-- Preload the hero portrait (LCP) — responsive to match the <picture>. -->
+    <link
+      rel="preload"
+      as="image"
+      href="./sachin.webp"
+      imagesrcset="./sachin-480.webp 480w, ./sachin.webp 760w"
+      imagesizes="(max-width: 900px) 62vw, 340px"
+      fetchpriority="high"
+    />
 
     <title>Sachin S — Full Stack AI Engineer</title>
     <meta

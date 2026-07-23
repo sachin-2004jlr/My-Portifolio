@@ -118,7 +118,11 @@ export default function Hero() {
         <div className="hero__portrait">
           <div className="hero__portrait-frame">
             <picture>
-              <source srcSet={profile.photoWebp} type="image/webp" />
+              <source
+                type="image/webp"
+                srcSet={`${profile.photoWebpSmall} 480w, ${profile.photoWebp} 760w`}
+                sizes="(max-width: 900px) 62vw, 340px"
+              />
               <img
                 className="hero__portrait-img"
                 src={profile.photo}

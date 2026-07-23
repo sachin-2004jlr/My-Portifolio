@@ -12,8 +12,9 @@ export const profile = {
   based: 'Based in Bengaluru, India',
   availability: 'Open to opportunities',
   year: '2004',
-  photo: './sachin.png',
+  photo: './sachin.jpg',
   photoWebp: './sachin.webp',
+  photoWebpSmall: './sachin-480.webp',
   photoWidth: 760,
   photoHeight: 1007,
   // Big editorial headline words

@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node _icons.mjs)"
+      "Bash(node _icons.mjs)",
+      "Bash(node _optimg.mjs)"
     ]
   }
 }
