@@ -699,6 +699,9 @@ section[id], [id='top'], [id='main'] { scroll-margin-top: calc(var(--nav-h) + 1r
   .hero__title { font-size: clamp(2.2rem, 12.5vw, 3rem); letter-spacing: -0.03em; }
   /* Shrink the fixed-width recent-work fan so rotated cards stay on-screen. */
   .hero__work-stack { transform: scale(0.82); transform-origin: left center; }
+  /* Two-up stats get cramped under ~360px — stack to a single readable column. */
+  .stats__inner { grid-template-columns: 1fr; }
+  .stat + .stat { border-left: none; border-top: 1px solid var(--line); }
 }
 
 /* ---------- Reduced motion ---------- */
