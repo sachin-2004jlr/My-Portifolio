@@ -281,6 +281,18 @@ main { position: relative; z-index: 1; }
 .nav__links a.is-active { color: var(--ink); }
 .nav__links a.is-active::before { content: '/ '; color: var(--accent-deep); }
 .nav__links-cta { margin-left: 0.6rem; }
+.nav__resume {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  margin-left: 0.6rem;
+  padding: 0.42rem 0.85rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 100px;
+  font-family: var(--font-mono); font-size: 0.72rem;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft);
+  transition: background .2s, color .2s, border-color .2s;
+}
+.nav__resume:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.nav__resume svg { font-size: 0.95em; }
 .nav__burger { display: none; flex-direction: column; gap: 5px; padding: 8px; }
 .nav__burger span { width: 22px; height: 2px; background: var(--ink); transition: transform .3s, opacity .3s; }
 .nav__burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }

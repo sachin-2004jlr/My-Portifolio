@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { navLinks, profile } from '../data/content'
+import { DownloadIcon } from './Icons'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -63,6 +64,17 @@ export default function Nav() {
             </li>
           ))}
         </ul>
+
+        <a
+          className="nav__resume"
+          href={profile.resumeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          download
+        >
+          <DownloadIcon />
+          <span>Resume</span>
+        </a>
 
         <button
           className={`nav__burger ${open ? 'is-open' : ''}`}
