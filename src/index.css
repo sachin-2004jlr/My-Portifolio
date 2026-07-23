@@ -323,6 +323,7 @@ main { position: relative; z-index: 1; }
   text-transform: uppercase;
   color: var(--accent-deep);
 }
+.hero__kicker-role { display: inline-block; }
 .hero__title {
   margin-top: 0.35rem;
   font-family: var(--font-display);

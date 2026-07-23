@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { profile, projects } from '../data/content'
 import { ArrowUpRight, ArrowDownRight } from './Icons'
 import useMagnetic from '../hooks/useMagnetic'
@@ -21,6 +22,30 @@ const char = {
     y: 0,
     transition: { duration: 0.75, delay: 0.22 + i * 0.045, ease: [0.22, 1, 0.36, 1] },
   }),
+}
+
+// Cycles the kicker through profile.roles with a soft vertical fade.
+function RotatingRole({ roles }) {
+  const [i, setI] = useState(0)
+  useEffect(() => {
+    if (roles.length < 2) return
+    const id = setInterval(() => setI((n) => (n + 1) % roles.length), 2600)
+    return () => clearInterval(id)
+  }, [roles.length])
+  return (
+    <AnimatePresence mode="wait">
+      <motion.span
+        key={i}
+        className="hero__kicker-role"
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -6 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {roles[i]}
+      </motion.span>
+    </AnimatePresence>
+  )
 }
 
 function Title({ name, reduce }) {
@@ -66,7 +91,7 @@ export default function Hero() {
         </motion.span>
 
         <motion.p className="hero__kicker" variants={rise} initial="hidden" animate="show" custom={1}>
-          {profile.headline.join(' ')}
+          {reduce ? profile.roles[0] : <RotatingRole roles={profile.roles} />}
         </motion.p>
 
         <Title name={profile.name} reduce={reduce} />
