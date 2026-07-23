@@ -46,15 +46,6 @@ export function ArrowUpRight(props) {
   )
 }
 
-export function ArrowDown(props) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M12 5v14" />
-      <path d="m6 13 6 6 6-6" />
-    </svg>
-  )
-}
-
 export function ArrowUp(props) {
   return (
     <svg {...base} {...props}>
@@ -133,15 +124,6 @@ export function CheckIcon(props) {
   return (
     <svg {...base} {...props}>
       <path d="m5 12 5 5L20 7" />
-    </svg>
-  )
-}
-
-export function MapPinIcon(props) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-      <circle cx="12" cy="10" r="2.6" />
     </svg>
   )
 }

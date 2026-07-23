@@ -6,7 +6,6 @@
 export const profile = {
   name: 'Sachin S',
   firstName: 'Sachin',
-  lastName: 'S',
   roles: ['Full Stack AI Engineer', 'Generative AI Builder', 'ML Engineer'],
   tagline: 'Full Stack AI Engineer',
   location: 'Bengaluru, India',
@@ -19,8 +18,6 @@ export const profile = {
   photoHeight: 1007,
   // Big editorial headline words
   headline: ['Full Stack', 'AI Engineer'],
-  summary:
-    'Full Stack AI Engineer with hands-on experience building AI-powered applications, semantic search systems, and scalable web platforms. I work across Python, React, Flask, machine learning, NLP and vector databases — with a strong focus on Generative AI and intelligent automation.',
   statement:
     "I'm a Full Stack AI Engineer who builds intelligent, production-grade applications — from model to interface.",
   // About-section body copy (character scroll-reveal renders each paragraph).
