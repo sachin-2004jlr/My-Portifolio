@@ -1,12 +1,13 @@
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import AnimatedText from './AnimatedText'
-import { profile, education, socials } from '../data/content'
+import { profile, education, socials, experience } from '../data/content'
 import { GitHubIcon, LinkedInIcon, MailIcon } from './Icons'
 
 const socialIcon = { github: GitHubIcon, linkedin: LinkedInIcon, mail: MailIcon }
 
 export default function About() {
+  const current = experience.find((e) => e.current) || experience[0]
   return (
     <section className="section about" id="about">
       <SectionHeading
@@ -56,10 +57,10 @@ export default function About() {
           <div className="about__card about__card--accent">
             <h3 className="about__card-title">Currently</h3>
             <p className="about__now">
-              Full-Stack Developer Intern at <strong>Budhhi Technologies</strong>, building
-              AI-driven discovery on React · Flask · MongoDB · OpenAI · Pinecone.
+              {current.role} at <strong>{current.company}</strong> — building AI-driven
+              discovery on {current.stack.slice(0, 5).join(' · ')}.
             </p>
-            <p className="about__now-loc">{profile.location} · {profile.availability}</p>
+            <p className="about__now-loc">{current.location} · {profile.availability}</p>
           </div>
         </Reveal>
       </div>
