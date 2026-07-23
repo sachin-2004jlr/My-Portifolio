@@ -5,6 +5,17 @@ import SectionHeading from './SectionHeading'
 import { projects } from '../data/content'
 import { ArrowUpRight } from './Icons'
 
+// Initials from the first two significant words — a stand-in "logo" so each
+// text card gets a visual anchor without inventing a fake screenshot.
+const monogram = (name) =>
+  name
+    .split(/[\s-]+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase()
+
 // One card in the sticky stack. As the section scrolls, earlier cards shrink
 // while later ones slide up and settle on top — a physical "deck" of work.
 function StackCard({ p, i, total, progress, reduce }) {
@@ -20,6 +31,14 @@ function StackCard({ p, i, total, progress, reduce }) {
         className={`project ${p.featured ? 'project--featured' : ''}`}
         style={reduce ? undefined : { scale }}
       >
+        <div
+          className="project__cover"
+          style={{ '--cover-angle': `${118 + i * 31}deg` }}
+          aria-hidden="true"
+        >
+          <span className="project__monogram">{monogram(p.name)}</span>
+          <span className="project__cover-tag">{p.tags[0]}</span>
+        </div>
         <div className="project__top">
           <span className="project__meta">
             <span className="project__index">

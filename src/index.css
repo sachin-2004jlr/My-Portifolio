@@ -563,6 +563,31 @@ section[id], [id='top'], [id='main'] { scroll-margin-top: calc(var(--nav-h) + 1r
 }
 .project:hover { box-shadow: 10px 10px 0 var(--ink); border-color: var(--ink); }
 .project--featured { border-color: var(--ink); }
+.project__cover {
+  position: relative; overflow: hidden;
+  height: 92px; margin: -1.7rem -1.7rem 1.3rem;
+  border-radius: 10px 10px 0 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 1.4rem;
+  background: linear-gradient(var(--cover-angle, 130deg), var(--ink), var(--accent-deep));
+}
+/* faint dotted texture so the panel isn't a flat wash */
+.project__cover::after {
+  content: ''; position: absolute; inset: 0; opacity: 0.5;
+  background-image: radial-gradient(color-mix(in srgb, var(--paper) 26%, transparent) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+.project__monogram {
+  position: relative; z-index: 1;
+  font-family: var(--font-display); font-weight: 700; font-size: 2.3rem; line-height: 1;
+  letter-spacing: -0.03em; color: color-mix(in srgb, var(--paper) 94%, transparent);
+}
+.project__cover-tag {
+  position: relative; z-index: 1;
+  font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.28rem 0.6rem; border-radius: 100px;
+  color: var(--paper); border: 1px solid color-mix(in srgb, var(--paper) 34%, transparent);
+}
 .project__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
 .project__period { font-family: var(--font-mono); font-size: 0.74rem; color: var(--muted); }
 .project__badge { font-family: var(--font-mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.22rem 0.55rem; border-radius: 100px; background: var(--accent-deep); color: var(--accent-ink); }
