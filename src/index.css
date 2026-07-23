@@ -805,7 +805,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
   .skip-link, .marquee, .nav, .contact__copy { display: none !important; }
   * { animation: none !important; transition: none !important; }
   .hero { min-height: auto !important; padding-top: 1rem !important; }
-  section, .hero, .project, .cert-card, .skill-card, .timeline__item, .about__card {
+  section, .hero, .project, .cert-card, .skill-card, .exp__item, .about__card {
     break-inside: avoid; page-break-inside: avoid;
   }
   .project:hover, .skill-card:hover, .cert-card:hover, .tag:hover {
