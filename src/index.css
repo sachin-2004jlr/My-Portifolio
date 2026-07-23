@@ -660,7 +660,8 @@ section[id], [id='top'], [id='main'] { scroll-margin-top: calc(var(--nav-h) + 1r
   .hero__portrait { justify-content: center; }
   .about__grid { grid-template-columns: 1fr; }
 }
-@media (max-width: 720px) {
+/* Collapse to a burger before the six links + resume pill overflow the bar. */
+@media (max-width: 860px) {
   .nav__links {
     position: fixed;
     inset: var(--nav-h) 0 auto 0;
@@ -683,6 +684,8 @@ section[id], [id='top'], [id='main'] { scroll-margin-top: calc(var(--nav-h) + 1r
   }
   .nav__links a { padding: 0.9rem 0.3rem; font-size: 0.9rem; border-bottom: 1px solid var(--line); }
   .nav__burger { display: flex; }
+}
+@media (max-width: 720px) {
   .exp__item { grid-template-columns: 1fr; gap: 0.8rem; }
   .skills__grid, .certs__grid { grid-template-columns: 1fr; }
   .stats__inner { grid-template-columns: 1fr 1fr; }
