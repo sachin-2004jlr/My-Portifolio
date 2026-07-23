@@ -572,7 +572,10 @@ section[id], [id='top'], [id='main'] { scroll-margin-top: calc(var(--nav-h) + 1r
 .project__points li { position: relative; padding-left: 1.15rem; font-size: 0.86rem; color: var(--ink-soft); }
 .project__points li::before { content: '→'; position: absolute; left: 0; color: var(--accent-deep); }
 .project__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.3rem; }
-.project__link { margin-top: auto; display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; transition: gap .2s; }
+.project__links { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.3rem; }
+.project__link { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; transition: gap .2s; }
+.project__link--demo { color: var(--accent-deep); }
+.project__link--demo svg { color: var(--accent); }
 .project__link:hover { gap: 0.7rem; }
 .project__link svg { color: var(--accent); }
 .project__company {
@@ -586,7 +589,6 @@ section[id], [id='top'], [id='main'] { scroll-margin-top: calc(var(--nav-h) + 1r
   border: 1px solid var(--accent-deep); color: var(--accent-deep);
 }
 .project__note {
-  margin-top: auto;
   display: inline-flex; align-items: center; gap: 0.4rem;
   font-family: var(--font-mono); font-size: 0.74rem;
   letter-spacing: 0.03em; color: var(--muted);

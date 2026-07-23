@@ -47,13 +47,26 @@ function StackCard({ p, i, total, progress, reduce }) {
             <li key={t} className="tag">{t}</li>
           ))}
         </ul>
-        {p.url ? (
-          <a className="project__link" href={p.url} target="_blank" rel="noopener noreferrer">
-            View on GitHub <ArrowUpRight />
-          </a>
-        ) : (
-          <span className="project__note">Private company project · {p.company}</span>
-        )}
+        <div className="project__links">
+          {p.demo && (
+            <a
+              className="project__link project__link--demo"
+              href={p.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live demo <ArrowUpRight />
+            </a>
+          )}
+          {p.url && (
+            <a className="project__link" href={p.url} target="_blank" rel="noopener noreferrer">
+              View on GitHub <ArrowUpRight />
+            </a>
+          )}
+          {!p.url && !p.demo && (
+            <span className="project__note">Private company project · {p.company}</span>
+          )}
+        </div>
       </motion.article>
     </div>
   )
