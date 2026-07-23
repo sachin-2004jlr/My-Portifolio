@@ -544,7 +544,6 @@ main { position: relative; z-index: 1; }
 .work__filter { padding: 0.5rem 1rem; border: 1px solid var(--line-strong); border-radius: 100px; font-family: var(--font-mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); transition: all .2s; }
 .work__filter.is-active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .work__filter-count { opacity: 0.55; margin-left: 0.15rem; }
-.work__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.2rem; }
 .project {
   position: relative;
   display: flex; flex-direction: column;
