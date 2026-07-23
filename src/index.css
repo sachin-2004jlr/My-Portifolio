@@ -581,7 +581,7 @@ main { position: relative; z-index: 1; }
   margin-top: auto;
   display: inline-flex; align-items: center; gap: 0.4rem;
   font-family: var(--font-mono); font-size: 0.74rem;
-  letter-spacing: 0.03em; color: var(--faint);
+  letter-spacing: 0.03em; color: var(--muted);
 }
 
 /* ---------- Certifications ---------- */
@@ -648,7 +648,7 @@ main { position: relative; z-index: 1; }
 .footer__nav { display: flex; gap: 1rem; flex-wrap: wrap; }
 .footer__nav a { font-family: var(--font-mono); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); transition: color .2s; }
 .footer__nav a:hover { color: var(--ink); }
-.footer__copy { font-family: var(--font-mono); font-size: 0.72rem; color: var(--faint); flex-basis: 100%; text-align: center; padding-top: 1rem; border-top: 1px solid var(--line); }
+.footer__copy { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); flex-basis: 100%; text-align: center; padding-top: 1rem; border-top: 1px solid var(--line); }
 
 /* ============================================================
    RESPONSIVE
