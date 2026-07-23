@@ -23,6 +23,11 @@ export const profile = {
     'Full Stack AI Engineer with hands-on experience building AI-powered applications, semantic search systems, and scalable web platforms. I work across Python, React, Flask, machine learning, NLP and vector databases — with a strong focus on Generative AI and intelligent automation.',
   statement:
     "I'm a Full Stack AI Engineer who builds intelligent, production-grade applications — from model to interface.",
+  // About-section body copy (character scroll-reveal renders each paragraph).
+  about: [
+    "I'm a Full Stack AI Engineer who loves the whole arc — from a raw model or a fuzzy idea, all the way to a polished product people actually use. My sweet spot is the intersection of Generative AI and production-grade engineering.",
+    "Lately I've been building an AI-powered talent-matching platform: semantic search with vector embeddings, resume parsing and ATS scoring, real-time messaging, and the unglamorous-but-essential pieces like auth, access control and rate limiting. I care about systems that are intelligent and dependable.",
+  ],
   services: ['AI & Generative AI', 'Full-Stack (Web)', 'ML & Data Pipelines'],
   email: 'sachin2004jlr@gmail.com',
   resumeUrl: './SACHIN_RESUME.pdf',

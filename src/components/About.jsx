@@ -6,11 +6,6 @@ import { GitHubIcon, LinkedInIcon, MailIcon } from './Icons'
 
 const socialIcon = { github: GitHubIcon, linkedin: LinkedInIcon, mail: MailIcon }
 
-const P1 =
-  "I'm a Full Stack AI Engineer who loves the whole arc — from a raw model or a fuzzy idea, all the way to a polished product people actually use. My sweet spot is the intersection of Generative AI and production-grade engineering."
-const P2 =
-  "Lately I've been building an AI-powered talent-matching platform: semantic search with vector embeddings, resume parsing and ATS scoring, real-time messaging, and the unglamorous-but-essential pieces like auth, access control and rate limiting. I care about systems that are intelligent and dependable."
-
 export default function About() {
   return (
     <section className="section about" id="about">
@@ -22,8 +17,9 @@ export default function About() {
 
       <div className="about__grid">
         <Reveal className="about__lead">
-          <AnimatedText text={P1} className="about__para" />
-          <AnimatedText text={P2} className="about__para" />
+          {profile.about.map((para, i) => (
+            <AnimatedText key={i} text={para} className="about__para" />
+          ))}
 
           <div className="about__socials">
             {socials.map((s) => {
