@@ -58,6 +58,7 @@ export default function Nav() {
                 href={link.href}
                 onClick={(e) => go(e, link.href)}
                 className={active === link.href ? 'is-active' : ''}
+                aria-current={active === link.href ? 'page' : undefined}
               >
                 {link.label}
               </a>
