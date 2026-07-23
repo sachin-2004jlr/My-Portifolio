@@ -21,7 +21,9 @@ export default function Contact() {
   return (
     <section className="section contact" id="contact">
       <div className="contact__panel">
-        <Reveal className="contact__eyebrow">Let's build something</Reveal>
+        <Reveal className="contact__eyebrow">
+          <span className="contact__index">06</span> Let's build something
+        </Reveal>
         <Reveal as="h2" className="contact__title" delay={0.05}>
           Have a project, a role, or an idea in mind?
         </Reveal>

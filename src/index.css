@@ -615,6 +615,7 @@ main { position: relative; z-index: 1; }
   overflow: hidden;
 }
 .contact__eyebrow { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.1rem; }
+.contact__index { color: color-mix(in srgb, var(--paper) 55%, transparent); margin-right: 0.35rem; }
 .contact__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.9rem, 5.5vw, 3.6rem); line-height: 1.02; letter-spacing: -0.035em; max-width: 18ch; margin: 0 auto; }
 .contact__sub { margin: 1.2rem auto 0; max-width: 50ch; color: var(--faint); }
 .contact__actions { margin-top: 2.2rem; display: flex; justify-content: center; }
