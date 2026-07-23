@@ -694,6 +694,10 @@ section[id], [id='top'], [id='main'] { scroll-margin-top: calc(var(--nav-h) + 1r
   .hero__work { justify-content: flex-start; }
   .hero__work-label { text-align: left; margin-left: 0; }
 }
+@media (max-width: 420px) {
+  /* Keep the big name on one line without spilling off very narrow screens. */
+  .hero__title { font-size: clamp(2.2rem, 12.5vw, 3rem); letter-spacing: -0.03em; }
+}
 
 /* ---------- Reduced motion ---------- */
 /* ---------- Recent-work stack: 3D fan-out on hover ---------- */
