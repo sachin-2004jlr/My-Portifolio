@@ -1,6 +1,7 @@
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import TiltCard from './TiltCard'
+import { Icon } from './Icons'
 import { skillGroups } from '../data/content'
 
 export default function Skills() {
@@ -18,6 +19,9 @@ export default function Skills() {
           <Reveal className="skills__cell" key={group.title} delay={i * 0.05}>
             <TiltCard className="skill-card" max={5} lift={3}>
               <div className="skill-card__head">
+                <span className="skill-card__icon" aria-hidden="true">
+                  <Icon name={group.icon} />
+                </span>
                 <span className="skill-card__num">{String(i + 1).padStart(2, '0')}</span>
                 <h3 className="skill-card__title">{group.title}</h3>
               </div>

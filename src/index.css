@@ -523,6 +523,12 @@ section[id], [id='top'], [id='main'] { scroll-margin-top: calc(var(--nav-h) + 1r
 .skill-card { padding: 1.7rem; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--card); }
 .skill-card:hover { box-shadow: 0 18px 40px -24px rgba(0,0,0,.45); border-color: var(--ink); }
 .skill-card__head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.2rem; }
+.skill-card__icon {
+  display: grid; place-items: center;
+  width: 34px; height: 34px; flex-shrink: 0;
+  border: 1px solid var(--line-strong); border-radius: 8px;
+  font-size: 1.05rem; color: var(--accent-deep);
+}
 .skill-card__num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-deep); }
 .skill-card__title { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; }
 .skill-card__tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
