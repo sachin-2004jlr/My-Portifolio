@@ -96,7 +96,7 @@ export const experience = [
   },
   {
     role: 'Machine Learning Intern',
-    company: 'Acme Grade',
+    company: 'Acmegrade',
     location: 'Remote',
     period: 'Apr 2025 — Jun 2025',
     current: false,
@@ -179,7 +179,7 @@ export const projects = [
   },
   {
     name: 'Stock Price Prediction & EDA',
-    period: 'Apr — May 2025',
+    period: '2025',
     featured: false,
     tags: ['Python', 'TensorFlow', 'Keras', 'LSTM', 'EDA'],
     blurb:
@@ -193,7 +193,7 @@ export const projects = [
   },
   {
     name: 'Real-Time Face Detection',
-    period: 'Nov — Dec 2024',
+    period: '2024',
     featured: false,
     tags: ['Python', 'OpenCV', 'Computer Vision'],
     blurb:
