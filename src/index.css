@@ -472,6 +472,8 @@ main { position: relative; z-index: 1; }
   margin: 0 auto;
   padding: clamp(3.5rem, 8vw, 6.5rem) var(--pad);
 }
+/* Anchor + keyboard-focus jumps land clear of the fixed header. */
+section[id], [id='top'], [id='main'] { scroll-margin-top: calc(var(--nav-h) + 1rem); }
 .section + .section { padding-top: clamp(1rem, 3vw, 2rem); }
 
 .section-heading { position: relative; margin-bottom: clamp(2rem, 5vw, 3.5rem); padding-top: 1.4rem; }
