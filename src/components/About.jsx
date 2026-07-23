@@ -2,9 +2,7 @@ import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import AnimatedText from './AnimatedText'
 import { profile, education, socials, experience } from '../data/content'
-import { GitHubIcon, LinkedInIcon, MailIcon } from './Icons'
-
-const socialIcon = { github: GitHubIcon, linkedin: LinkedInIcon, mail: MailIcon }
+import { socialIcons, MailIcon } from './Icons'
 
 export default function About() {
   const current = experience.find((e) => e.current) || experience[0]
@@ -24,7 +22,7 @@ export default function About() {
 
           <div className="about__socials">
             {socials.map((s) => {
-              const I = socialIcon[s.icon] || MailIcon
+              const I = socialIcons[s.icon] || MailIcon
               return (
                 <a
                   key={s.label}

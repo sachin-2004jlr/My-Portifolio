@@ -138,6 +138,57 @@ export function DownloadIcon(props) {
   )
 }
 
+export function XIcon(props) {
+  return (
+    <svg {...base} strokeWidth={0} fill="currentColor" {...props}>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
+    </svg>
+  )
+}
+
+export function KaggleIcon(props) {
+  return (
+    <svg {...base} strokeWidth={0} fill="currentColor" {...props}>
+      <path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.234.118-.353.354-.353h2.431c.234 0 .351.119.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.336Z" />
+    </svg>
+  )
+}
+
+export function HuggingFaceIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="9" cy="10.5" r="1.1" fill="currentColor" stroke="none" />
+      <circle cx="15" cy="10.5" r="1.1" fill="currentColor" stroke="none" />
+      <path d="M8.5 14.5a4 4 0 0 0 7 0" />
+    </svg>
+  )
+}
+
+export function GlobeIcon(props) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18" />
+    </svg>
+  )
+}
+
+// Central map for social links — a single source used by About, Contact and
+// Footer (was duplicated in each). Add a profile in content.js with a matching
+// `icon` key and it renders everywhere.
+export const socialIcons = {
+  github: GitHubIcon,
+  linkedin: LinkedInIcon,
+  mail: MailIcon,
+  x: XIcon,
+  twitter: XIcon,
+  kaggle: KaggleIcon,
+  huggingface: HuggingFaceIcon,
+  website: GlobeIcon,
+}
+
 const iconMap = {
   code: CodeIcon,
   brain: BrainIcon,

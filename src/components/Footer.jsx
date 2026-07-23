@@ -1,7 +1,5 @@
 import { profile, navLinks, socials } from '../data/content'
-import { GitHubIcon, LinkedInIcon, MailIcon } from './Icons'
-
-const socialIcon = { github: GitHubIcon, linkedin: LinkedInIcon, mail: MailIcon }
+import { socialIcons, MailIcon } from './Icons'
 
 export default function Footer() {
   const go = (e, href) => {
@@ -19,7 +17,7 @@ export default function Footer() {
             <p className="footer__role">{profile.tagline}</p>
             <div className="footer__socials">
               {socials.map((s) => {
-                const I = socialIcon[s.icon] || MailIcon
+                const I = socialIcons[s.icon] || MailIcon
                 return (
                   <a
                     key={s.label}

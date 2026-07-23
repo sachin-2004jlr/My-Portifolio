@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
 import { profile, socials } from '../data/content'
-import { GitHubIcon, LinkedInIcon, MailIcon, ArrowUpRight, CopyIcon, CheckIcon, DownloadIcon } from './Icons'
-
-const socialIcon = { github: GitHubIcon, linkedin: LinkedInIcon, mail: MailIcon }
+import { socialIcons, MailIcon, ArrowUpRight, CopyIcon, CheckIcon, DownloadIcon } from './Icons'
 
 export default function Contact() {
   const [copied, setCopied] = useState(false)
@@ -59,7 +57,7 @@ export default function Contact() {
 
         <Reveal className="contact__links" delay={0.2}>
           {socials.map((s) => {
-            const I = socialIcon[s.icon] || MailIcon
+            const I = socialIcons[s.icon] || MailIcon
             return (
               <a
                 key={s.label}
