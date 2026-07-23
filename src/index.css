@@ -669,9 +669,16 @@ main { position: relative; z-index: 1; }
     background: var(--paper);
     border-bottom: 1px solid var(--line);
     transform: translateY(-130%);
-    transition: transform .35s cubic-bezier(.22,1,.36,1);
+    /* Hidden from tab order + assistive tech while slid off-screen; the
+       delayed visibility keeps the slide-out animation smooth. */
+    visibility: hidden;
+    transition: transform .35s cubic-bezier(.22,1,.36,1), visibility 0s linear .35s;
   }
-  .nav__links.is-open { transform: translateY(0); }
+  .nav__links.is-open {
+    transform: translateY(0);
+    visibility: visible;
+    transition: transform .35s cubic-bezier(.22,1,.36,1), visibility 0s;
+  }
   .nav__links a { padding: 0.9rem 0.3rem; font-size: 0.9rem; border-bottom: 1px solid var(--line); }
   .nav__burger { display: flex; }
   .exp__item { grid-template-columns: 1fr; gap: 0.8rem; }

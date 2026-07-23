@@ -51,7 +51,7 @@ export default function Nav() {
           </span>
         </a>
 
-        <ul className={`nav__links ${open ? 'is-open' : ''}`}>
+        <ul id="nav-menu" className={`nav__links ${open ? 'is-open' : ''}`}>
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -81,6 +81,7 @@ export default function Nav() {
           onClick={() => setOpen((o) => !o)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
+          aria-controls="nav-menu"
         >
           <span /><span /><span />
         </button>
