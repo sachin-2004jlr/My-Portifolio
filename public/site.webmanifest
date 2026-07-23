@@ -1,0 +1,15 @@
+{
+  "name": "Sachin S — Full Stack AI Engineer",
+  "short_name": "Sachin S",
+  "description": "Portfolio of Sachin S — a Full Stack AI Engineer building AI-powered, production-grade applications.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f3ee",
+  "theme_color": "#f4f3ee",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
