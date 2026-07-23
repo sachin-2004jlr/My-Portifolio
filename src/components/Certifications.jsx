@@ -15,6 +15,7 @@ const groupOf = (issuer = '') => {
 
 export default function Certifications() {
   const [filter, setFilter] = useState('All')
+  const verifiable = certifications.filter((c) => c.url).length
 
   const filters = useMemo(() => {
     const counts = certifications.reduce((acc, c) => {
@@ -41,7 +42,7 @@ export default function Certifications() {
         index="05"
         eyebrow="Credentials"
         title="Certifications & achievements."
-        sub={`${certifications.length} verified credentials across Generative AI, cloud and data.`}
+        sub={`${certifications.length} credentials across Generative AI, cloud and data — ${verifiable} with public verification links.`}
       />
 
       <Reveal className="work__filters" role="group" aria-label="Filter certifications by issuer">
