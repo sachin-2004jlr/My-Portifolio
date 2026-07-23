@@ -639,6 +639,9 @@ main { position: relative; z-index: 1; }
 
 /* ---------- Footer ---------- */
 .footer { position: relative; z-index: 1; border-top: 1px solid var(--ink); margin-top: clamp(3rem, 6vw, 5rem); }
+.footer__socials { display: flex; gap: 0.7rem; margin-top: 0.75rem; }
+.footer__socials a { color: var(--muted); font-size: 1.15rem; transition: color .2s, transform .2s; }
+.footer__socials a:hover { color: var(--ink); transform: translateY(-2px); }
 .footer__inner { max-width: var(--container); margin: 0 auto; padding: 2.4rem var(--pad); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
 .footer__brand { display: flex; align-items: center; gap: 0.7rem; }
 .footer__name { font-family: var(--font-display); font-weight: 600; }

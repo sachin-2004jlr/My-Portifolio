@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
 import { profile, socials } from '../data/content'
-import { GitHubIcon, LinkedInIcon, MailIcon, ArrowUpRight, CopyIcon, CheckIcon } from './Icons'
+import { GitHubIcon, LinkedInIcon, MailIcon, ArrowUpRight, CopyIcon, CheckIcon, DownloadIcon } from './Icons'
 
 const socialIcon = { github: GitHubIcon, linkedin: LinkedInIcon, mail: MailIcon }
 
@@ -45,6 +45,16 @@ export default function Contact() {
             {copied ? <CheckIcon /> : <CopyIcon />}
             <span>{copied ? 'Copied' : 'Copy'}</span>
           </button>
+          <a
+            className="contact__copy"
+            href={profile.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+          >
+            <DownloadIcon />
+            <span>Résumé</span>
+          </a>
         </Reveal>
 
         <Reveal className="contact__links" delay={0.2}>

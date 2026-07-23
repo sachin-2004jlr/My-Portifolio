@@ -1,4 +1,7 @@
-import { profile, navLinks } from '../data/content'
+import { profile, navLinks, socials } from '../data/content'
+import { GitHubIcon, LinkedInIcon, MailIcon } from './Icons'
+
+const socialIcon = { github: GitHubIcon, linkedin: LinkedInIcon, mail: MailIcon }
 
 export default function Footer() {
   const go = (e, href) => {
@@ -14,6 +17,22 @@ export default function Footer() {
           <div>
             <p className="footer__name">{profile.name}</p>
             <p className="footer__role">{profile.tagline}</p>
+            <div className="footer__socials">
+              {socials.map((s) => {
+                const I = socialIcon[s.icon] || MailIcon
+                return (
+                  <a
+                    key={s.label}
+                    href={s.url}
+                    target={s.icon === 'mail' ? undefined : '_blank'}
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                  >
+                    <I />
+                  </a>
+                )
+              })}
+            </div>
           </div>
         </div>
 
