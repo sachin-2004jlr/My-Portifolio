@@ -322,14 +322,9 @@ export const certifications = [
   {
     title: 'Machine Learning',
     issuer: 'Acmegrade',
-    year: 'Jun 2025',
-    detail: 'Supervised and unsupervised learning, model construction and evaluation on real datasets.',
-  },
-  {
-    title: 'Machine Learning',
-    issuer: 'Acmegrade',
-    year: 'Apr 2025',
-    detail: 'Hands-on machine learning foundations and applied model building.',
+    year: '2025',
+    detail:
+      'Supervised and unsupervised learning — model construction, evaluation and applied model building on real datasets, alongside the Acmegrade ML internship.',
   },
   {
     title: 'Python Foundation',
