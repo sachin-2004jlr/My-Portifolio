@@ -7,7 +7,8 @@
       "Bash(node _verify.mjs)",
       "Bash(node _dbg.mjs)",
       "Bash(node _og.mjs)",
-      "Bash(node -e \"const s=require\\('fs'\\).readFileSync\\('src/data/content.js','utf8'\\);const m=s.match\\(/export const certifications = \\\\[\\([\\\\s\\\\S]*?\\)\\\\n\\\\]/\\)[1];const titles=[...m.matchAll\\(/title: '\\([^']+\\)'/g\\)].map\\(x=>x[1]\\);const urls=\\(m.match\\(/url: '/g\\)||[]\\).length;console.log\\('total certs:',titles.length,'| with verify links:',urls\\);console.log\\('Anthropic:',[...m.matchAll\\(/issuer: 'Anthropic Education'/g\\)].length\\)\")"
+      "Bash(node -e \"const s=require\\('fs'\\).readFileSync\\('src/data/content.js','utf8'\\);const m=s.match\\(/export const certifications = \\\\[\\([\\\\s\\\\S]*?\\)\\\\n\\\\]/\\)[1];const titles=[...m.matchAll\\(/title: '\\([^']+\\)'/g\\)].map\\(x=>x[1]\\);const urls=\\(m.match\\(/url: '/g\\)||[]\\).length;console.log\\('total certs:',titles.length,'| with verify links:',urls\\);console.log\\('Anthropic:',[...m.matchAll\\(/issuer: 'Anthropic Education'/g\\)].length\\)\")",
+      "Bash(node -e \"const s=require\\('fs'\\).readFileSync\\('src/data/content.js','utf8'\\);const m=s.match\\(/export const certifications = \\\\[\\([\\\\s\\\\S]*?\\)\\\\n\\\\]/\\)[1];const t=[...m.matchAll\\(/title: '\\([^']+\\)'/g\\)].length;const u=\\(m.match\\(/url: '/g\\)||[]\\).length;const a=[...m.matchAll\\(/issuer: 'Anthropic Education'/g\\)].length;console.log\\('total:',t,'| verifiable:',u,'| Anthropic:',a\\)\")"
     ]
   }
 }

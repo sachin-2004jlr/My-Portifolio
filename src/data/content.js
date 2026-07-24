@@ -270,6 +270,14 @@ export const certifications = [
     url: 'https://verify.skilljar.com/c/fhnmbwv7v3y4',
   },
   {
+    title: 'AI Fluency: Framework & Foundations',
+    issuer: 'Anthropic Education',
+    year: 'Jul 2026',
+    detail:
+      'A structured framework for working fluently with AI — delegation, description, discernment and diligence applied to real workflows.',
+    url: 'https://verify.skilljar.com/c/f52mgpnehasy',
+  },
+  {
     title: 'Claude Platform 101',
     issuer: 'Anthropic Education',
     year: 'Jul 2026',
