@@ -268,6 +268,14 @@ export const certifications = [
     url: 'https://verify.skilljar.com/c/fhnmbwv7v3y4',
   },
   {
+    title: 'Claude Code 101',
+    issuer: 'Anthropic Education',
+    year: 'Jul 2026',
+    detail:
+      'Getting started with Claude Code — the agentic command-line coding workflow, project setup and everyday developer use.',
+    url: 'https://verify.skilljar.com/c/qa33rstknb4e',
+  },
+  {
     title: 'Claude Code in Action',
     issuer: 'Anthropic Education',
     year: 'Jul 2026',
