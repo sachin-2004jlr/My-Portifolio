@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
@@ -91,17 +91,49 @@ function StackCard({ p, i, total, progress, reduce }) {
   )
 }
 
+// Curated tech lenses so recruiters can jump to the kind of work they care
+// about. A project matches a lens if it carries any of the lens's tags.
+const LENSES = [
+  { key: 'genai', label: 'GenAI / LLM', tags: ['RAG', 'LLM', 'OpenAI', 'Streamlit', 'Pinecone', 'Vector DB'] },
+  { key: 'nlp', label: 'NLP', tags: ['NLP', 'Sentiment Analysis', 'Summarization'] },
+  { key: 'cv', label: 'Computer Vision', tags: ['OpenCV', 'Computer Vision'] },
+  { key: 'ml', label: 'Classic ML', tags: ['Scikit-learn', 'XGBoost', 'SVM', 'Random Forest', 'LSTM', 'TensorFlow', 'Keras', 'Deep Learning'] },
+]
+
+const matchesLens = (p, lens) => {
+  const set = new Set(lens.tags)
+  return p.tags.some((t) => set.has(t))
+}
+
 export default function Projects() {
   const [filter, setFilter] = useState('all')
   const reduce = useReducedMotion()
-  const featuredCount = projects.filter((p) => p.featured).length
   const stackRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: stackRef,
     offset: ['start start', 'end end'],
   })
 
-  const shown = filter === 'featured' ? projects.filter((p) => p.featured) : projects
+  // Build the filter bar: All + Featured + any lens that actually has matches.
+  const filters = useMemo(() => {
+    const base = [
+      { key: 'all', label: 'All work', count: projects.length },
+      { key: 'featured', label: 'Featured', count: projects.filter((p) => p.featured).length },
+    ]
+    const lenses = LENSES.map((l) => ({
+      key: l.key,
+      label: l.label,
+      count: projects.filter((p) => matchesLens(p, l)).length,
+    })).filter((l) => l.count > 0)
+    return [...base, ...lenses]
+  }, [])
+
+  const shown = useMemo(() => {
+    if (filter === 'all') return projects
+    if (filter === 'featured') return projects.filter((p) => p.featured)
+    const lens = LENSES.find((l) => l.key === filter)
+    return lens ? projects.filter((p) => matchesLens(p, lens)) : projects
+  }, [filter])
 
   return (
     <section className="section work" id="work">
@@ -112,21 +144,17 @@ export default function Projects() {
         sub="A mix of production platforms, deep-learning models and applied ML."
       />
 
-      <Reveal className="work__filters" role="group" aria-label="Filter projects">
-        <button
-          className={`work__filter ${filter === 'all' ? 'is-active' : ''}`}
-          onClick={() => setFilter('all')}
-          aria-pressed={filter === 'all'}
-        >
-          All work <span className="work__filter-count">{projects.length}</span>
-        </button>
-        <button
-          className={`work__filter ${filter === 'featured' ? 'is-active' : ''}`}
-          onClick={() => setFilter('featured')}
-          aria-pressed={filter === 'featured'}
-        >
-          Featured <span className="work__filter-count">{featuredCount}</span>
-        </button>
+      <Reveal className="work__filters" role="group" aria-label="Filter projects by focus">
+        {filters.map((f) => (
+          <button
+            key={f.key}
+            className={`work__filter ${filter === f.key ? 'is-active' : ''}`}
+            onClick={() => setFilter(f.key)}
+            aria-pressed={filter === f.key}
+          >
+            {f.label} <span className="work__filter-count">{f.count}</span>
+          </button>
+        ))}
       </Reveal>
 
       <div className="work__stack" ref={stackRef}>

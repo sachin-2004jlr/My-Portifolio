@@ -551,7 +551,7 @@ section[id], [id='top'], [id='main'] { scroll-margin-top: calc(var(--nav-h) + 1r
 .exp__stack { margin-top: 1.3rem; display: flex; flex-wrap: wrap; gap: 0.45rem; }
 
 /* ---------- Work ---------- */
-.work__filters { display: flex; gap: 0.5rem; margin-bottom: 1.8rem; }
+.work__filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.8rem; }
 .work__filter { padding: 0.5rem 1rem; border: 1px solid var(--line-strong); border-radius: 100px; font-family: var(--font-mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); transition: all .2s; }
 .work__filter.is-active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .work__filter-count { opacity: 0.55; margin-left: 0.15rem; }
