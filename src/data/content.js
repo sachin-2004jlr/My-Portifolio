@@ -46,6 +46,10 @@ export const skillGroups = [
       'Prompt Engineering & Prompt Evaluation',
       'AI Agent Development & Workflow Automation',
       'Retrieval-Augmented Generation (RAG)',
+      'Hybrid Retrieval (Dense + BM25)',
+      'Reciprocal Rank Fusion (RRF)',
+      'Cross-Encoder Reranking',
+      'Citation Verification (NLI)',
       'Model Context Protocol (MCP)',
       'Tool Calling & LLM Integration',
     ],
@@ -53,7 +57,7 @@ export const skillGroups = [
   {
     title: 'Languages & Frameworks',
     icon: 'code',
-    items: ['Python', 'JavaScript', 'React', 'Flask', 'Axios', 'HTML / CSS', 'Flask-SocketIO'],
+    items: ['Python', 'JavaScript', 'React', 'Flask', 'FastAPI', 'Pydantic', 'Axios', 'HTML / CSS', 'Flask-SocketIO'],
   },
   {
     title: 'AI & Data',
@@ -61,6 +65,7 @@ export const skillGroups = [
     items: [
       'Neural Networks', 'NLP', 'LangChain', 'LangGraph', 'Semantic Search',
       'Vector Embeddings', 'Fine-Tuning',
+      'Google Gemini', 'Ollama', 'Sentence-Transformers', 'BM25',
       'TensorFlow', 'PyTorch', 'Keras', 'Scikit-learn', 'OpenCV', 'Pandas', 'NumPy',
     ],
   },
@@ -68,8 +73,9 @@ export const skillGroups = [
     title: 'Tools & Infrastructure',
     icon: 'stack',
     items: [
-      'MongoDB', 'Pinecone', 'GridFS', 'PyMongo', 'REST APIs', 'WebSockets / Socket.IO',
-      'JWT Auth', 'Docker', 'Kubernetes', 'AWS', 'Snowflake', 'Git & GitHub',
+      'MongoDB', 'Pinecone', 'Qdrant', 'GridFS', 'PyMongo', 'REST APIs',
+      'WebSockets / Socket.IO', 'Server-Sent Events (SSE)',
+      'JWT Auth', 'Google OAuth 2.0', 'Docker', 'Kubernetes', 'AWS', 'Snowflake', 'Git & GitHub',
     ],
   },
   {
@@ -122,6 +128,22 @@ export const projects = [
       'JWT-based auth, role-based access control and real-time messaging via Socket.IO.',
       'OpenAI + Pinecone vector database for semantic search, significantly improving recommendation relevance.',
       'Resume parsing and ATS scoring pipelines with NLP extraction, plus a real-time notification system.',
+    ],
+    url: null,
+  },
+  {
+    name: 'DocuTrust — Self-Verifying RAG',
+    period: 'Ongoing',
+    private: true,
+    featured: true,
+    tags: ['RAG', 'FastAPI', 'React', 'Gemini', 'Pinecone', 'Qdrant', 'MongoDB', 'NLP'],
+    blurb:
+      'A hybrid RAG system that answers from your documents with precise, clickable citations — and fact-checks every claim before you see it.',
+    highlights: [
+      'Hybrid retrieval: dense vector search and BM25 run in parallel, fuse with Reciprocal Rank Fusion, then rerank through a cross-encoder that reads query and chunk together.',
+      'Self-verifying answers: every cited sentence is checked against its source chunk with an NLI model — compound claims are split so each part is flagged verified or unverified.',
+      'Provider-agnostic by design: swap Gemini ↔ Ollama and Pinecone ↔ Qdrant with two env vars, so it runs fully local or fully cloud.',
+      'FastAPI backend streaming answers over SSE, React 19 front end, MongoDB for users and chats, Google OAuth with JWT in httpOnly cookies.',
     ],
     url: null,
   },

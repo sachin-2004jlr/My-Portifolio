@@ -49,7 +49,7 @@ function StackCard({ p, i, total, progress, reduce }) {
           {p.featured && <span className="project__badge">Featured</span>}
         </div>
         <h3 className="project__name">{p.name}</h3>
-        {p.company && (
+        {(p.company || p.private) && (
           <p className="project__company">
             {p.company}
             {p.private && <span className="project__private">Private</span>}
@@ -83,7 +83,11 @@ function StackCard({ p, i, total, progress, reduce }) {
             </a>
           )}
           {!p.url && !p.demo && (
-            <span className="project__note">Private company project · {p.company}</span>
+            <span className="project__note">
+              {p.company
+                ? `Private company project · ${p.company}`
+                : 'Private repository — walkthrough available on request'}
+            </span>
           )}
         </div>
       </motion.article>
