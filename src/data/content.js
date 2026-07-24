@@ -260,6 +260,14 @@ export const certifications = [
     url: 'https://verify.skilljar.com/c/ko6wq9ax4oek',
   },
   {
+    title: 'Claude 101',
+    issuer: 'Anthropic Education',
+    year: 'Jul 2026',
+    detail:
+      'Foundations of Claude — model capabilities, effective prompting patterns and responsible, practical use of Anthropic AI.',
+    url: 'https://verify.skilljar.com/c/fhnmbwv7v3y4',
+  },
+  {
     title: 'Agentic AI Day',
     issuer: 'Google',
     year: 'Sep 2025',
