@@ -268,6 +268,14 @@ export const certifications = [
     url: 'https://verify.skilljar.com/c/fhnmbwv7v3y4',
   },
   {
+    title: 'Claude Code in Action',
+    issuer: 'Anthropic Education',
+    year: 'Jul 2026',
+    detail:
+      'Agentic coding with Claude Code — driving multi-step development, tool use and automation directly from the terminal.',
+    url: 'https://verify.skilljar.com/c/btptyfnpegdt',
+  },
+  {
     title: 'Agentic AI Day',
     issuer: 'Google',
     year: 'Sep 2025',
