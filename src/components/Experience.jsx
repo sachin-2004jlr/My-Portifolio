@@ -21,7 +21,10 @@ export default function Experience() {
               )}
             </div>
             <div className="exp__body">
-              <h3 className="exp__role">{job.role}</h3>
+              <div className="exp__role-row">
+                <h3 className="exp__role">{job.role}</h3>
+                {job.type && <span className="exp__type">{job.type}</span>}
+              </div>
               <p className="exp__company">
                 {job.company} <span>· {job.location}</span>
               </p>

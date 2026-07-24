@@ -542,7 +542,13 @@ section[id], [id='top'], [id='main'] { scroll-margin-top: calc(var(--nav-h) + 1r
 .exp__period { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.03em; color: var(--muted); }
 .exp__period-live { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--accent-deep); }
 .exp__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2.2s infinite; }
+.exp__role-row { display: flex; align-items: center; flex-wrap: wrap; gap: 0.7rem; }
 .exp__role { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.3rem, 3vw, 1.9rem); letter-spacing: -0.02em; }
+.exp__type {
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.24rem 0.6rem; border-radius: 100px;
+  border: 1px solid var(--accent-deep); color: var(--accent-deep);
+}
 .exp__company { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.3rem; }
 .exp__company span { color: var(--muted); }
 .exp__points { margin-top: 1.1rem; display: flex; flex-direction: column; gap: 0.7rem; }
