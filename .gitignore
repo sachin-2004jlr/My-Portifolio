@@ -37,3 +37,7 @@ desktop.ini
 .temp/
 .eslintcache
 .vite/
+
+# Scratch / throwaway scripts (screenshot + asset-gen helpers)
+_*.mjs
+_*.js
