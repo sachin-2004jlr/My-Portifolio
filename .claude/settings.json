@@ -6,7 +6,8 @@
       "Bash(node -e \"const fs=require\\('fs'\\);const h=fs.readFileSync\\('index.html','utf8'\\);const m=h.match\\(/<script type=\\\\\"application\\\\/ld\\\\+json\\\\\">\\([\\\\s\\\\S]*?\\)<\\\\/script>/\\);JSON.parse\\(m[1]\\);console.log\\('JSON-LD valid'\\)\")",
       "Bash(node _verify.mjs)",
       "Bash(node _dbg.mjs)",
-      "Bash(node _og.mjs)"
+      "Bash(node _og.mjs)",
+      "Bash(node -e \"const s=require\\('fs'\\).readFileSync\\('src/data/content.js','utf8'\\);const m=s.match\\(/export const certifications = \\\\[\\([\\\\s\\\\S]*?\\)\\\\n\\\\]/\\)[1];const titles=[...m.matchAll\\(/title: '\\([^']+\\)'/g\\)].map\\(x=>x[1]\\);const urls=\\(m.match\\(/url: '/g\\)||[]\\).length;console.log\\('total certs:',titles.length,'| with verify links:',urls\\);console.log\\('Anthropic:',[...m.matchAll\\(/issuer: 'Anthropic Education'/g\\)].length\\)\")"
     ]
   }
 }

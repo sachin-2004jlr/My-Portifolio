@@ -270,6 +270,14 @@ export const certifications = [
     url: 'https://verify.skilljar.com/c/fhnmbwv7v3y4',
   },
   {
+    title: 'Claude Platform 101',
+    issuer: 'Anthropic Education',
+    year: 'Jul 2026',
+    detail:
+      'The Claude platform end to end — working across the API, developer tooling and product surfaces to build on Anthropic models.',
+    url: 'https://verify.skilljar.com/c/jh7wrtf386f3',
+  },
+  {
     title: 'Claude Code 101',
     issuer: 'Anthropic Education',
     year: 'Jul 2026',
