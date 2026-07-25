@@ -82,7 +82,8 @@ Any static host works (the asset base is relative).
 - No secrets, API keys or `.env` files are committed (`.gitignore` blocks them).
 - No runtime external requests; no third-party analytics or trackers.
 - All links use `rel="noopener noreferrer"` on `target="_blank"`.
-- Dependencies audited with `npm audit` — **0 vulnerabilities**.
+- **Shipped dependencies: 0 vulnerabilities** (`npm audit --omit=dev`). The only
+  advisories are in the dev-time ESLint toolchain and never reach the built site.
 
 ## 📬 Contact
 

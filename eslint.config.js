@@ -14,7 +14,15 @@ export default [
     ...js.configs.recommended,
     rules: {
       ...js.configs.recommended.rules,
-      'no-unused-vars': ['warn', { varsIgnorePattern: '^[A-Z_]' }],
+      // `motion` (framer-motion) and capitalised component vars like `Tag`
+      // are referenced only inside JSX (`<motion.div>`, `<Tag>`). Core ESLint
+      // can't see JSX usage without eslint-plugin-react, which we skip on
+      // purpose — it bundles a legacy minimatch flagged by npm audit — so we
+      // allow those identifiers here instead.
+      'no-unused-vars': [
+        'warn',
+        { varsIgnorePattern: '^(motion|[A-Z_])', argsIgnorePattern: '^[A-Z_]' },
+      ],
     },
   },
 ]

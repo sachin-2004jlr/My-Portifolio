@@ -41,3 +41,6 @@ desktop.ini
 # Scratch / throwaway scripts (screenshot + asset-gen helpers)
 _*.mjs
 _*.js
+
+# Local tooling config (Claude Code) — machine-specific, not project content
+.claude/
