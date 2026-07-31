@@ -284,6 +284,14 @@ export const certifications = [
     url: 'https://verify.skilljar.com/c/ko6wq9ax4oek',
   },
   {
+    title: 'Introduction to MCP',
+    issuer: 'Anthropic Education',
+    year: 'Jul 2026',
+    detail:
+      'Model Context Protocol fundamentals: connecting AI assistants to tools, data sources and structured context through standard MCP interfaces.',
+    url: 'https://verify.skilljar.com/c/eddy5fogdutv',
+  },
+  {
     title: 'Claude 101',
     issuer: 'Anthropic Education',
     year: 'Jul 2026',
