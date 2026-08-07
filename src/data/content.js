@@ -316,6 +316,14 @@ export const certifications = [
     url: 'https://verify.skilljar.com/c/q4jxtki39758',
   },
   {
+    title: 'AI Fluency for Students',
+    issuer: 'Anthropic Education',
+    year: 'Aug 2026',
+    detail:
+      'The AI-fluency framework for students — using Claude to support learning effectively, critically and with academic integrity.',
+    url: 'https://verify.skilljar.com/c/wj33bop5mqv6',
+  },
+  {
     title: 'Claude Platform 101',
     issuer: 'Anthropic Education',
     year: 'Jul 2026',
