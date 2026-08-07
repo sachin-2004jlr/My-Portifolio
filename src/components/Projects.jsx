@@ -10,9 +10,9 @@ import { ArrowUpRight } from './Icons'
 const monogram = (name) =>
   name
     .split(/[\s-]+/)
-    // Skip punctuation-only tokens (em dashes, separators) so they can't
-    // become "letters" in the monogram.
-    .filter((w) => /^[A-Za-z0-9]/.test(w))
+    // Only letter-led words seed the monogram, so separators (—) and
+    // number tokens ("3D") can't turn into odd initials like "W3".
+    .filter((w) => /^[A-Za-z]/.test(w))
     .slice(0, 2)
     .map((w) => w[0])
     .join('')
