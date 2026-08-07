@@ -57,15 +57,18 @@ export const skillGroups = [
   {
     title: 'Languages & Frameworks',
     icon: 'code',
-    items: ['Python', 'JavaScript', 'React', 'Flask', 'FastAPI', 'Pydantic', 'Axios', 'HTML / CSS', 'Flask-SocketIO'],
+    items: [
+      'Python', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Flask', 'FastAPI',
+      'Pydantic', 'Three.js', 'Tailwind CSS', 'Axios', 'HTML / CSS', 'Flask-SocketIO',
+    ],
   },
   {
     title: 'AI & Data',
     icon: 'brain',
     items: [
-      'Neural Networks', 'NLP', 'LangChain', 'LangGraph', 'Semantic Search',
+      'Neural Networks', 'NLP', 'Multimodal Vision', 'LangChain', 'LangGraph', 'Semantic Search',
       'Vector Embeddings', 'Fine-Tuning',
-      'Google Gemini', 'Ollama', 'Sentence-Transformers', 'BM25',
+      'Google Gemini', 'Hugging Face', 'Ollama', 'Sentence-Transformers', 'BM25',
       'TensorFlow', 'PyTorch', 'Keras', 'Scikit-learn', 'OpenCV', 'Pandas', 'NumPy',
     ],
   },
@@ -73,9 +76,10 @@ export const skillGroups = [
     title: 'Tools & Infrastructure',
     icon: 'stack',
     items: [
-      'MongoDB', 'Pinecone', 'Qdrant', 'GridFS', 'PyMongo', 'REST APIs',
-      'WebSockets / Socket.IO', 'Server-Sent Events (SSE)',
-      'JWT Auth', 'Google OAuth 2.0', 'Docker', 'Kubernetes', 'AWS', 'Snowflake', 'Git & GitHub',
+      'MongoDB', 'Mongoose', 'Pinecone', 'Qdrant', 'GridFS', 'PyMongo', 'REST APIs',
+      'WebSockets / Socket.IO', 'Server-Sent Events (SSE)', 'Web Scraping (Cheerio)',
+      'JWT Auth', 'Auth.js (NextAuth)', 'Google OAuth 2.0', 'Cloudinary',
+      'Docker', 'Kubernetes', 'AWS', 'Snowflake', 'Git & GitHub',
     ],
   },
   {
@@ -144,6 +148,22 @@ export const projects = [
       'Self-verifying answers: every cited sentence is checked against its source chunk with an NLI model — compound claims are split so each part is flagged verified or unverified.',
       'Provider-agnostic by design: swap Gemini ↔ Ollama and Pinecone ↔ Qdrant with two env vars, so it runs fully local or fully cloud.',
       'FastAPI backend streaming answers over SSE, React 19 front end, MongoDB for users and chats, Google OAuth with JWT in httpOnly cookies.',
+    ],
+    url: null,
+  },
+  {
+    name: 'WardrobeAI — 3D Try-On & AI Stylist',
+    period: 'Ongoing',
+    private: true,
+    featured: true,
+    tags: ['Next.js', 'TypeScript', 'Three.js', 'Gemini', 'Hugging Face', 'MongoDB', 'Auth.js', 'Cloudinary'],
+    blurb:
+      'A virtual wardrobe with a 3D try-on avatar and an AI stylist that dresses you only in clothes you actually own.',
+    highlights: [
+      'Add clothes by pasting a product link or photographing your own (background-removed); a Gemini stylist then composes complete outfits built strictly from items you own.',
+      '3D try-on avatar shaped from your measurements with three.js + react-three-fiber, plus photorealistic try-on rendered free via Hugging Face.',
+      'Production-grade Next.js 15 (App Router, TS): Auth.js with Google OAuth + hashed-OTP email, MongoDB/Mongoose, signed Cloudinary uploads and zod-validated routes with per-user ownership enforced in every query.',
+      'Cost- and security-aware scraper: 7-day cache → free cheerio → paid Apify fallback only when needed, with SSRF guards that refuse loopback, RFC1918 and cloud-metadata addresses.',
     ],
     url: null,
   },
