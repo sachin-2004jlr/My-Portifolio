@@ -308,6 +308,14 @@ export const certifications = [
     url: 'https://verify.skilljar.com/c/f52mgpnehasy',
   },
   {
+    title: 'AI Fluency for Educators',
+    issuer: 'Anthropic Education',
+    year: 'Aug 2026',
+    detail:
+      'Applying the AI-fluency framework to teaching and learning — using Claude effectively and responsibly in educational settings.',
+    url: 'https://verify.skilljar.com/c/q4jxtki39758',
+  },
+  {
     title: 'Claude Platform 101',
     issuer: 'Anthropic Education',
     year: 'Jul 2026',
