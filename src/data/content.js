@@ -312,6 +312,14 @@ export const certifications = [
     url: 'https://verify.skilljar.com/c/eddy5fogdutv',
   },
   {
+    title: 'Model Context Protocol: Advanced Topics',
+    issuer: 'Anthropic Education',
+    year: 'Aug 2026',
+    detail:
+      'Advanced MCP: building robust servers with resources, prompts and tool orchestration, plus transport, auth and production integration patterns.',
+    url: 'https://verify.skilljar.com/c/z9hwmiigtyzc',
+  },
+  {
     title: 'Claude 101',
     issuer: 'Anthropic Education',
     year: 'Jul 2026',
