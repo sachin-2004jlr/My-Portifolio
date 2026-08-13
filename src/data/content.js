@@ -296,6 +296,14 @@ export const certifications = [
     url: 'https://verify.skilljar.com/c/ct7tuupwp85p',
   },
   {
+    title: 'Claude with Amazon Bedrock',
+    issuer: 'Anthropic Education',
+    year: 'Aug 2026',
+    detail:
+      'Deploying and integrating Claude through Amazon Bedrock — invoking Anthropic models on AWS-managed infrastructure for production workloads.',
+    url: 'https://verify.skilljar.com/c/qjjke3isvspd',
+  },
+  {
     title: 'Introduction to Claude Cowork',
     issuer: 'Anthropic Education',
     year: 'Jul 2026',
