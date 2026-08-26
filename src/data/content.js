@@ -91,12 +91,25 @@ export const skillGroups = [
 
 export const experience = [
   {
-    role: 'Full Stack Developer Intern',
+    role: 'Junior Full Stack AI Engineer',
     company: 'Budhhi Technologies',
-    location: 'Ontario, Canada (Remote)',
-    type: 'Internship',
-    period: 'Jan 2026 — Present',
+    location: 'Toronto, Ontario, Canada (Remote)',
+    type: 'Full-time',
+    period: 'Aug 2026 — Present',
     current: true,
+    stack: ['React', 'Flask', 'MongoDB', 'OpenAI API', 'Pinecone', 'Socket.IO'],
+    highlights: [
+      'Promoted from the software-development internship to a full-time engineering role after shipping the platform’s core AI features.',
+      'Owning and extending AI-driven discovery on the talent-matching platform end to end — semantic profile matching, real-time messaging and access control across React, Flask and MongoDB.',
+    ],
+  },
+  {
+    role: 'Associate Software Developer',
+    company: 'Budhhi Technologies',
+    location: 'Toronto, Ontario, Canada (Remote)',
+    type: 'Internship',
+    period: 'Feb 2026 — Aug 2026',
+    current: false,
     stack: ['Python', 'Flask', 'React', 'MongoDB', 'OpenAI API', 'Socket.IO'],
     highlights: [
       'Built a full-stack web platform for intelligent user discovery combining React, Flask and MongoDB — with secure JWT authentication, role-based access control, rate limiting and real-time messaging via Flask-SocketIO.',
@@ -462,7 +475,7 @@ export const stats = [
   { value: certifications.length, suffix: '', label: 'Certifications' },
   { value: 9.07, decimals: 2, suffix: '/10', label: 'CGPA · B.E. AI & DS' },
   { value: projects.length, suffix: '', label: 'Projects shipped' },
-  { value: experience.length, suffix: '', label: 'Internships' },
+  { value: experience.filter((e) => e.type === 'Internship').length, suffix: '', label: 'Internships' },
 ]
 
 export const navLinks = [
